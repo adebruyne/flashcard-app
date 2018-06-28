@@ -11,8 +11,6 @@ app.set('view engine', '.hbs');
 const static = express.static;
 app.use(static('public'));
 
-const pg = require('pg');
-
 
 
 

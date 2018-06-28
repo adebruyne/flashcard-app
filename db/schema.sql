@@ -14,7 +14,7 @@ CREATE TABLE Cards(
     topic VARCHAR (300),
     question TEXT,
     answer TEXT,
-    imgURL NVARCHAR (2083),
+    imgURL VARCHAR (2083),
     isRight BOOLEAN
 );
 
