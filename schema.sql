@@ -1,50 +1,45 @@
-CREATE TABLE public."Decks"
-(
-    topic character varying(200) COLLATE pg_catalog."default",
-    deck_id integer NOT NULL DEFAULT nextval('"Decks_deck_id_seq"'::regclass),
-    CONSTRAINT deck_id PRIMARY KEY (deck_id)
-)
+-- database name is flashcards
+
+DROP TABLE IF EXISTS Decks;
+
+-- create db flashcards;
+
+CREATE TABLE Decks(
+    deck_id SERIAL UNIQUE PRIMARY KEY,
+    topic VARCHAR(300)
+);
+
+CREATE TABLE Cards(
+    card_id SERIAL UNIQUE PRIMARY KEY,
+    topic VARCHAR (300),
+    question TEXT,
+    answer TEXT,
+    imgURL NVARCHAR (2083),
+    isRight BOOLEAN
+);
+
+CREATE TABLE Sessions(
+    session_id SERIAL UNIQUE PRIMARY KEY,
+    row_created_ TIMESTAMP WITH TIME ZONE
+);
 
 
-CREATE TABLE public."Cards"
-(
-    card_id integer NOT NULL DEFAULT nextval('"Cards_card_id_seq"'::regclass),
-    question character varying(300) COLLATE pg_catalog."default",
-    answer character varying(600) COLLATE pg_catalog."default",
-    CONSTRAINT card_id PRIMARY KEY (card_id)
-)
 
+-- for later - adding in user login authentication
+-- CREATE TABLE users (
+--   id SERIAL UNIQUE PRIMARY KEY,
+--   email VARCHAR (225),
+--   password_digest TEXT,
+--   user_name (VARCHAR 50)
+-- )
 
-CREATE TABLE public."Images"
-(
-    img_id integer NOT NULL DEFAULT nextval('"Images_img_id_seq"'::regclass),
-    imgname character varying(10) COLLATE pg_catalog."default",
-    imgimage oid,
-    CONSTRAINT img_id PRIMARY KEY (img_id)
-)
+-- from node-connect-pg-simple https://github.com/voxpelli/node-connect-pg-simple/blob/master/table.sql
+-- code for adding the feature of timing a session (i.e. quizing)
+-- CREATE TABLE "session" (
+--   "sid" varchar NOT NULL COLLATE "default",
+--   "sess" json NOT NULL,
+--   "expire" timestamp(6) NOT NULL
+-- )
 
-
-CREATE TABLE public."Results"
-(
-    deck_id integer,
-    card_id integer,
-    "isRight" boolean,
-    CONSTRAINT card_id FOREIGN KEY (card_id)
-        REFERENCES public."Cards" (card_id) MATCH SIMPLE
-        ON UPDATE NO ACTION
-        ON DELETE NO ACTION,
-    CONSTRAINT deck_id FOREIGN KEY (deck_id)
-        REFERENCES public."Decks" (deck_id) MATCH SIMPLE
-        ON UPDATE NO ACTION
-        ON DELETE NO ACTION
-)
-
-CREATE INDEX fki_card_id
-    ON public."Results" USING btree
-    (card_id)
-    TABLESPACE pg_default;
-
-CREATE INDEX fki_deck_id
-    ON public."Results" USING btree
-    (deck_id)
-    TABLESPACE pg_default;
+-- WITH (OIDS=FALSE);
+-- ALTER TABLE "session" ADD CONSTRAINT "session_pkey" PRIMARY KEY ("sid") NOT DEFERRABLE INITIALLY IMMEDIATE;
