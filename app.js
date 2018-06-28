@@ -26,7 +26,18 @@ app.get('/deck/:deckid', (req,res) => {
     //get all the cards for one deck
 });
 
+//ROUTE TO ADD A NEW CARD
+app.get('/newcard', (req,res) => {
+    // res.send("You want a new card!")
+    //Show a form for a new card
+    res.render('new-card-page')
+})
 
+app.post('/newcard', (req ,res) => {
+    res.send('You submited the form')
+    //add the 'question', 'answer', 'image' as a new card into the deck
+    // res.redirect('/deck/:deckid');
+})
 
 
 

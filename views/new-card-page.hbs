@@ -1,0 +1,22 @@
+<h1>Create a New Card</h1>
+
+<form action="/newcard" method="POST">
+    <div class="form-group">
+        <label>Term</label>
+        <input type="text" class="form-control" name="question" id="">
+    </div>
+    <br>
+    
+    <div class="form-group">
+        <label>Description</label>
+        <textarea class="form-control" name="answer" rows="3"></textarea>
+    </div>
+    <br>
+
+    <div class="form-group">
+        <label>Add an Image</label>
+        <input class="form-control" type="text" name="image" placeholder="image url">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
