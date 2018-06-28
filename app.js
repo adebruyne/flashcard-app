@@ -13,3 +13,14 @@ app.use(static('public'));
 
 const pg = require('pg');
 
+app.get('/', (req,res) => {
+    res.render('homepage')
+});
+
+
+
+
+
+app.listen( 3000, () => {
+    console.log('You have a happy server!')
+})
