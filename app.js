@@ -27,19 +27,24 @@ app.get('/deck/:deckid', (req,res) => {
 });
 
 //ROUTE TO ADD A NEW CARD
-app.get('/newcard', (req,res) => {
+app.get('/deck/:deckid/newcard', (req,res) => {
     // res.send("You want a new card!")
     //Show a form for a new card
     res.render('new-card-page')
 })
 
-app.post('/newcard', (req ,res) => {
+app.post('/deck/:deckid/newcard', (req ,res) => {
     res.send('You submited the form')
     //add the 'question', 'answer', 'image' as a new card into the deck
     // res.redirect('/deck/:deckid');
 })
 
-
+//ROUTE TO TEST QUESTION
+app.get('/deck/:deckid/test/:cardid', (req,res) => {
+    //get one card from specific deck
+    // res.send('You got to answer this')
+    res.render('test-page')
+})
 
 
 app.listen( 3000, () => {
