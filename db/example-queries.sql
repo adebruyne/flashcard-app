@@ -39,9 +39,9 @@ WHERE tests_id=2;
 
 -- add a card
 INSERT INTO Cards
-	(topic, question, answer, imgUrl, isRight)
+	(topic, question, answer, imgUrl)
 VALUES
-	('algorithms', 'Implement a Fibonacci Number Calculator', NULL, 'https://cdn-images-1.medium.com/max/800/1*pvfDpHBsI1suLSOYR2cO3g.png', NULL)
+	('algorithms', 'Implement a Fibonacci Number Calculator', NULL, 'https://cdn-images-1.medium.com/max/800/1*pvfDpHBsI1suLSOYR2cO3g.png')
 
 
 -- change question and/or answer - TBD
