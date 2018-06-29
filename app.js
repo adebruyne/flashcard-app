@@ -1,15 +1,22 @@
+
+//IMPORT EXPRESS 
 const express = require('express');
 const app = express();
 
 
-
+//IMPORT body-parser
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 
+//IMPORT db.js
+const flashcard = require('./db')
+
+//IMPORT handlebars
 const expressHbs = require('express-handlebars');
 app.engine('.hbs', expressHbs({defaultLayout: 'layout', extname: '.hbs'}));
 app.set('view engine', '.hbs');
 
+//USE Public folder for styles
 const static = express.static;
 app.use(static('public'));
 
@@ -24,8 +31,14 @@ app.get('/', (req,res) => {
 
 //ROUTE TO ALL THE DECKS
 app.get('/deck', (req,res) => {
-    res.render('decks-page')
+    flashcard.showAllDecks()
+        .then((data) => {
+           res.send(data);
+        })
+        .catch((error) => {console.log(error);});
+    // res.render('decks-page')
     //get all the decks
+    
 });
 
 

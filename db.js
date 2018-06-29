@@ -13,7 +13,6 @@ const cn = {
 const db = pgp(cn);
 
 
-<<<<<<< HEAD
 
 //SHOW
 function showOneDeck(deck_id) {
@@ -39,22 +38,23 @@ function showAllDecks() {
 //   .then((data) => {console.log(data);})
 //   .catch((error) => {console.log(error);});
 
- function showOneCard (card_id) {
-   return db.oneOrNone(`SELECT * FROM Cards WHERE card_id=$1`,[card_id])
+
+ function showAllCards(deck_id) {
+    return db.any('SELECT * FROM Cards WHERE deck_id=$1', [deck_id])
  }
 
-
-
-
-// function showAllCards {
-
-// }
-
+//  showAllCards(1)
+//   .then(function(data){
+//     //success 
+//     console.log(data);  
+//   })
+//   .catch(function(error){
+//     //error;
+//     console.log(error);
+//   })
 
 // //ADD
-// function addCard {
-
-// }
+ 
 
 
 // function addDeck {
@@ -72,8 +72,7 @@ function showAllDecks() {
  module.exports = {
    showOneDeck,
    showAllDecks,
-//   showOneCard,
-//   showAllCards,
+   showAllCards,
 //   addDeck,
 //   addCard,
 //   setRightWrong,
@@ -82,5 +81,3 @@ function showAllDecks() {
 //   // updateDeck,
 //   // updateCard
  };
-=======
->>>>>>> dd7563ba0d75354d42a6a769a05d3b3f5b1f98c2
