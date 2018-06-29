@@ -51,7 +51,7 @@ function showAllCards(deck_id) {
 // })
 
 
-// //ADD
+//ADD
 function addCard(deck_id, topic, question, answer, imgUrl) {
   return db.one("INSERT INTO Cards (deck_id, topic, question, answer, imgUrl) VALUES ($1, '$1#', '$2#', '$3#', '$4#') returning card_id", [deck_id, topic, question, answer, imgUrl])
 }
@@ -65,7 +65,6 @@ function addCard(deck_id, topic, question, answer, imgUrl) {
 //     //error;
 //     console.log(error);
 //   });
-
 
 
 function addDeck(topic) {
@@ -83,22 +82,30 @@ function addDeck(topic) {
 //   });
 
 
-// //CHECK IF ANSWER IS RIGHT WRONG
-
-function setTest(card_id) {
-  return db.query("INSERT INTO Tests(card_id, isRight) VALUES($1, $2)", [card_id, true])
+//CHECK IF ANSWER IS RIGHT WRONG
+function setTest(card_id, isRight) {
+  return db.query("INSERT INTO Tests(card_id, isRight) VALUES($1, $2)", [card_id, isRight])
 }
 
-// setTest(3)
-//   .then(function(data){
-//     //success
-//     console.log(data);  
-//   })
-//   .catch(function(error){
-//     //error;
-//     console.log(error);
-//   });
+setTest(4, false)
+  .then(function(data){
+    //success
+    console.log(data);  
+  })
+  .catch(function(error){
+    //error;
+    console.log(error);
+  });
 
+
+//DELETE TESTS
+function deleteTests() {
+  return db.result("DELETE FROM Tests");
+}
+
+// deleteTests()
+//   .then((data) => {console.log(data);})
+//   .catch((error) => {console.log(error);});
 
 
 
@@ -109,11 +116,11 @@ module.exports = {
   addDeck,
   addCard,
   setTest,
+  deleteTests,
+  // updateIsRight
     // deleteDeck,
     // deleteCard,
     // updateDeck,
     // updateCard
 
 };
-
-
