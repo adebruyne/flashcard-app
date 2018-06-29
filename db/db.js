@@ -38,19 +38,13 @@ function addCard {
 }
 
 
-//UPDATE
-function updateDeck {
+function addDeck {
 
 }
 
-function updateCard {
+//CHECK IF ANSWER IS RIGHT WRONG
+function setRightWrong {
   
-}
-
-
-//DELETE
-function deleteCard {
-
 }
 
 
@@ -61,10 +55,11 @@ module.exports = {
   showAllDecks,
   showOneCard,
   showAllCards,
-  // addDeck,
+  addDeck,
   addCard,
+  setRightWrong,
   // deleteDeck,
-  deleteCard,
-  updateDeck,
-  updateCard
+  // deleteCard,
+  // updateDeck,
+  // updateCard
 };
