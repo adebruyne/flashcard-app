@@ -28,18 +28,28 @@ app.get('/deck', (req,res) => {
     //get all the decks
 });
 
+
+
+
 //ROUTE TO ADD NEW DECK
 app.get('/newdeck', (req, res) => {
     // res.send('new-deck-page')
     //Show a form for a new deck
     res.render('new-deck-page')
 }) 
+app.post('/newdeck', (req, res) => {
+    res.send('You submitted a new deck!')
+})
+
+
 
 //ROUTE TO INDIVIDUAL DECK
 app.get('/deck/:deckid', (req,res) => {
     res.render('deck-detail-page')
     //get all the cards for one deck
 });
+
+
 
 //ROUTE TO ADD A NEW CARD
 app.get('/deck/:deckid/newcard', (req,res) => {
@@ -54,12 +64,20 @@ app.post('/deck/:deckid/newcard', (req ,res) => {
     // res.redirect('/deck/:deckid');
 })
 
+
+
+
 //ROUTE TO TEST QUESTION
 app.get('/deck/:deckid/test/:cardid', (req,res) => {
     //get one card from specific deck
     // res.send('You got to answer this')
     res.render('test-page')
 })
+
+
+
+
+
 
 
 app.listen( 3000, () => {
