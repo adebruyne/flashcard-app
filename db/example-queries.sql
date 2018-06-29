@@ -1,51 +1,46 @@
 --DECKS++++++++++++++++
 
 -- get all the decks
-select * from Decks;
+SELECT * FROM Decks;
 
 
 -- get one deck by id
-select * from Decks where id=2;
+SELECT * FROM Decks WHERE deck_id=2;
 
 
 -- add new deck
-insert into Decks
+INSERT INTO Decks
 	(topic)
-values
+VALUES
 	('acronyms')
-
-
--- delete by id
--- TBD
-
 
 
 --CARDS++++++++++++++++
 
 -- get all the cards
-select * from Cards;
+SELECT * FROM Cards WHERE deck_id=1;
 
 
 -- get one card by id
-select * from Cards where id=8;
+SELECT card_id=3 FROM Cards WHERE deck_id=2;
 
 
 -- answer is correct
-update Tests
-set isRight=true
-where tests_id=1;
+UPDATE Tests
+SET isRight=true
+WHERE tests_id=1;
 
 
 -- answer is wrong
-update Tests
-set isRight=false
-where tests_id=2;
+UPDATE Tests
+SET isRight=false
+WHERE tests_id=2;
 
 
 -- add a card
-insert into Cards
+INSERT INTO Cards
 	(topic, question, answer, imgUrl, isRight)
-values
+VALUES
 	('algorithms', 'Implement a Fibonacci Number Calculator', NULL, 'https://cdn-images-1.medium.com/max/800/1*pvfDpHBsI1suLSOYR2cO3g.png', NULL)
 
 
