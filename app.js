@@ -18,7 +18,7 @@ app.use(static('public'));
 
 //ROUTE TO HOMEPAGE
 app.get('/', (req,res) => {
-    res.send('This is the homepage')
+    res.render('homepage')
 })
 
 
@@ -28,6 +28,12 @@ app.get('/deck', (req,res) => {
     //get all the decks
 });
 
+//ROUTE TO ADD NEW DECK
+app.get('/newdeck', (req, res) => {
+    // res.send('new-deck-page')
+    //Show a form for a new deck
+    res.render('new-deck-page')
+}) 
 
 //ROUTE TO INDIVIDUAL DECK
 app.get('/deck/:deckid', (req,res) => {
