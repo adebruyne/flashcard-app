@@ -22,7 +22,7 @@ values
 
 --CARDS++++++++++++++++
 
--- get all the cards
+-- get all the cards by deckid
 select * from Cards;
 
 

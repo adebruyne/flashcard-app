@@ -5,7 +5,7 @@ const pgp = require('pg-promise')();
 //ENVIRONMENTAL VARIABLES
 const cn = {
   host: 'localhost',
-  port: 3000,
+  port: 5432,
   database: 'flashcards',
   user: 'postgres',
   password: ''
@@ -15,51 +15,69 @@ const db = pgp(cn);
 
 
 //SHOW
-function showOneDeck {
-
+function showOneDeck(deck_id) {
+  return db.oneOrNone('SELECT * FROM Decks where deck_id= $1', [deck_id])
 }
 
-function showAllDecks {
+// showOneDeck(2)
+//   .then(function(data){
+//     //success 
+//     console.log(data);  
+//   })
+//   .catch(function(error){
+//     //error;
+//     console.log(error);
+//   })
 
+
+function showAllDecks() {
+  return db.any(`SELECT * FROM Decks`)
 }
 
-function showOneCard {
+// showAllDecks()
+//   .then((data) => {console.log(data);})
+//   .catch((error) => {console.log(error);});
 
-}
-
-function showAllCards {
-
-}
-
-
-//ADD
-function addCard {
-
-}
+ function showOneCard (card_id) {
+   return db.oneOrNone(`SELECT * FROM Cards WHERE card_id=$1`,[card_id])
+ }
 
 
-function addDeck {
 
-}
 
-//CHECK IF ANSWER IS RIGHT WRONG
-function setRightWrong {
+// function showAllCards {
+
+// }
+
+
+// //ADD
+// function addCard {
+
+// }
+
+
+// function addDeck {
+
+// }
+
+// //CHECK IF ANSWER IS RIGHT WRONG
+// function setRightWrong {
   
-}
+// }
 
 
 
 
-module.exports = {
-  showOneDeck,
-  showAllDecks,
-  showOneCard,
-  showAllCards,
-  addDeck,
-  addCard,
-  setRightWrong,
-  // deleteDeck,
-  // deleteCard,
-  // updateDeck,
-  // updateCard
-};
+ module.exports = {
+   showOneDeck,
+   showAllDecks,
+//   showOneCard,
+//   showAllCards,
+//   addDeck,
+//   addCard,
+//   setRightWrong,
+//   // deleteDeck,
+//   // deleteCard,
+//   // updateDeck,
+//   // updateCard
+ };
