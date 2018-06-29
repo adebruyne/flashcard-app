@@ -14,9 +14,17 @@ CREATE TABLE Cards(
     topic VARCHAR (300),
     question TEXT,
     answer TEXT,
-    imgURL VARCHAR (2083),
+    imgURL VARCHAR (2083)
+);
+
+
+CREATE TABLE Tests(
+    test_id SERIAL UNIQUE PRIMARY KEY,
+    card_id INTEGER REFERENCES Cards(card_id),
+    session_id INTEGER REFERENCES Sessions(session_id),
     isRight BOOLEAN
 );
+
 
 CREATE TABLE Sessions(
     session_id SERIAL UNIQUE PRIMARY KEY,
