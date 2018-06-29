@@ -13,7 +13,7 @@ app.set('view engine', '.hbs');
 const static = express.static;
 app.use(static('public'));
 
-const pg = require('pg');
+
 
 //ROUTE TO HOMEPAGE
 app.get('/', (req,res) => {
@@ -52,3 +52,9 @@ app.get('/deck/:deckid/test/:cardid', (req,res) => {
 app.listen( 3000, () => {
     console.log('You have a happy server!')
 })
+
+
+
+
+
+
