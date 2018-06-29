@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 
+
+
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -13,18 +15,46 @@ app.use(static('public'));
 
 
 
+//ROUTE TO HOMEPAGE
+app.get('/', (req,res) => {
+    res.render('homepage')
+    //get all the decks
+});
 
 
+//ROUTE TO INDIVIDUAL DECK
+app.get('/deck/:deckid', (req,res) => {
+    res.render('deck-detail-page')
+    //get all the cards for one deck
+});
+
+//ROUTE TO ADD A NEW CARD
+app.get('/deck/:deckid/newcard', (req,res) => {
+    // res.send("You want a new card!")
+    //Show a form for a new card
+    res.render('new-card-page')
+})
+
+app.post('/deck/:deckid/newcard', (req ,res) => {
+    res.send('You submited the form')
+    //add the 'question', 'answer', 'image' as a new card into the deck
+    // res.redirect('/deck/:deckid');
+})
+
+//ROUTE TO TEST QUESTION
+app.get('/deck/:deckid/test/:cardid', (req,res) => {
+    //get one card from specific deck
+    // res.send('You got to answer this')
+    res.render('test-page')
+})
 
 
-//Testing connection has been made to server
-app.get('/', () => {
-    console.log('TEST');
+app.listen( 3000, () => {
+    console.log('You have a happy server!')
 })
 
 
 
 
-app.listen(3000, () => {
-    console.log('Server started on port 3000');
-  });
+
+
