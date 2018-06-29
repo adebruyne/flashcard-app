@@ -15,9 +15,16 @@ app.use(static('public'));
 
 
 
+
 //ROUTE TO HOMEPAGE
 app.get('/', (req,res) => {
-    res.render('homepage')
+    res.send('This is the homepage')
+})
+
+
+//ROUTE TO ALL THE DECKS
+app.get('/deck', (req,res) => {
+    res.render('decks-page')
     //get all the decks
 });
 
