@@ -20,7 +20,7 @@ CREATE TABLE Cards(
 
 CREATE TABLE Sessions(
     session_id SERIAL UNIQUE PRIMARY KEY,
-    row_created_ TIMESTAMP WITH TIME ZONE
+    sessiondate TIMESTAMP
 );
 
 
