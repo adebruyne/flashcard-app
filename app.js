@@ -11,5 +11,20 @@ app.set('view engine', '.hbs');
 const static = express.static;
 app.use(static('public'));
 
-const pg = require('pg');
 
+
+
+
+
+
+//Testing connection has been made to server
+app.get('/', () => {
+    console.log('TEST');
+})
+
+
+
+
+app.listen(3000, () => {
+    console.log('Server started on port 3000');
+  });
