@@ -67,19 +67,37 @@ function addCard(deck_id, topic, question, answer, imgUrl) {
 //   });
 
 
-// INSERT INTO Cards
-// 	(topic, question, answer, imgUrl)
-// VALUES
-// 	('algorithms', 'Implement a Fibonacci Number Calculator', NULL, 'https://cdn-images-1.medium.com/max/800/1*pvfDpHBsI1suLSOYR2cO3g.png')
 
-// function addDeck {
+function addDeck(topic) {
+  return db.one("INSERT INTO Decks(topic) VALUES('$1#') returning deck_id", [topic])
+}
 
-// }
+// addDeck('biology')
+//   .then(function(data){
+//     //success
+//     console.log(data);  
+//   })
+//   .catch(function(error){
+//     //error;
+//     console.log(error);
+//   });
+
 
 // //CHECK IF ANSWER IS RIGHT WRONG
-// function setRightWrong {
 
-// }
+function setTest(card_id) {
+  return db.query("INSERT INTO Tests(card_id, isRight) VALUES($1, $2)", [card_id, true])
+}
+
+// setTest(3)
+//   .then(function(data){
+//     //success
+//     console.log(data);  
+//   })
+//   .catch(function(error){
+//     //error;
+//     console.log(error);
+//   });
 
 
 
@@ -88,13 +106,13 @@ module.exports = {
   showOneDeck,
   showAllDecks,
   showAllCards,
-  //   addDeck,
+  addDeck,
   addCard,
-  //   setRightWrong,
-  //   // deleteDeck,
-  //   // deleteCard,
-  //   // updateDeck,
-  //   // updateCard
+  setTest,
+    // deleteDeck,
+    // deleteCard,
+    // updateDeck,
+    // updateCard
 
 };
 
