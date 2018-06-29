@@ -17,6 +17,7 @@ VALUES
 
 --CARDS++++++++++++++++
 
+
 -- get all the cards
 SELECT * FROM Cards WHERE deck_id=1;
 

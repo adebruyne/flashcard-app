@@ -5,13 +5,16 @@ const pgp = require('pg-promise')();
 //ENVIRONMENTAL VARIABLES
 const cn = {
   host: 'localhost',
-  port: 3000,
+  port: 5432,
   database: 'flashcards',
   user: 'postgres',
   password: ''
 };
 const db = pgp(cn);
 
+
+
+//SHOW
 function showOneDeck(deck_id) {
   return db.oneOrNone('SELECT * FROM Decks where deck_id= $1', [deck_id])
 }
