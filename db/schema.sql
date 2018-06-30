@@ -20,8 +20,6 @@ CREATE TABLE Cards(
 );
 
 CREATE TABLE Tests(
-    test_id SERIAL UNIQUE PRIMARY KEY,
     card_id INTEGER REFERENCES Cards(card_id),
-    session_id INTEGER REFERENCES Sessions(session_id),
     isRight BOOLEAN
 );
