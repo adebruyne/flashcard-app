@@ -56,10 +56,10 @@ function showAllCards(deck_id) {
 
 //ADD
 function addCard(deck_id, topic, question, answer, imgUrl) {
-  return db.one("INSERT INTO Cards (deck_id, topic, question, answer, imgUrl) VALUES ($1, '$1#', '$2#', '$3#', '$4#') returning card_id", [deck_id, topic, question, answer, imgUrl])
+  return db.one("INSERT INTO Cards (deck_id, topic, question, answer, imgUrl) VALUES ($1, '$2#', '$3#', '$4#', '$5#') returning card_id", [deck_id, topic, question, answer, imgUrl])
 }
 
-// addCard(2, 'algorithms', 'Implement a Fibonacci Number Calculator', 'see diagram', 'https://cdn-images-1.medium.com/max/800/1*pvfDpHBsI1suLSOYR2cO3g.png')
+// addCard(3, 'meowtopic', 'Implement a Fibonacci Number Calculator', 'see diagram', 'https://cdn-images-1.medium.com/max/800/1*pvfDpHBsI1suLSOYR2cO3g.png')
 //   .then(function(data){
 //     //success
 //     console.log(data);  

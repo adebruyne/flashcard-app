@@ -86,15 +86,31 @@ app.get('/deck/:deckid', (req,res) => {
 
 //ROUTE TO ADD A NEW CARD
 app.get('/deck/:deckid/newcard', (req,res) => {
+    
     // res.send("You want a new card!")
     //Show a form for a new card
     res.render('new-card-page')
 })
 
 app.post('/deck/:deckid/newcard', (req ,res) => {
-    res.send('You submited the form')
+    // res.send('You submited the form')
     //add the 'question', 'answer', 'image' as a new card into the deck
-    // res.redirect('/deck/:deckid');
+    // / res.redirect('/deck/:deckid');
+    
+    let deck_id = req.params.deckid;
+    let topic = 'topic';
+    let question = req.body.question;
+    let answer = req.body.answer;
+    let imgURL = req.body.imgurl;
+    console.log(req.body);
+     flashcard.addCard(deck_id, topic, question, answer, imgUrl)
+         .then((data) => {
+         console.log(data)
+         res.send(data);
+    //     // res.redirect('/deck');
+     })
+        .catch((error) => {console.log(error);
+     })
 })
 
 
