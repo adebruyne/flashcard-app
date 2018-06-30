@@ -53,6 +53,7 @@ function addCard(deck_id, topic, question, answer, imgUrl) {
 //   .catch((error) => {console.log(error);});
 
 
+
 function addDeck(topic) {
   return db.one(`INSERT INTO Decks(topic) VALUES('$1#') returning deck_id`, [topic])
 }

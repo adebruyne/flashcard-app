@@ -74,8 +74,8 @@ app.get('/deck/:deckid', (req,res) => {
     flashcard.showAllCards(req.params.deckid)
         .then((data) => {
              console.log(data)
-        //      res.send(req.params.deck_id)
-        //     // res.render('deck-detail-page', data)
+            //  res.send(req.params.deck_id)
+         res.render('deck-detail-page', {cards: data})
          })
         .catch((error) => {console.log(error);
      })
@@ -84,18 +84,32 @@ app.get('/deck/:deckid', (req,res) => {
 });
 
 
-
 //ROUTE TO ADD A NEW CARD
 app.get('/deck/:deckid/newcard', (req,res) => {
+    
     // res.send("You want a new card!")
     //Show a form for a new card
     res.render('new-card-page')
 })
 
 app.post('/deck/:deckid/newcard', (req ,res) => {
-    res.send('You submited the form')
+    // res.send('You submited the form')
     //add the 'question', 'answer', 'image' as a new card into the deck
-    // res.redirect('/deck/:deckid');
+    // / res.redirect('/deck/:deckid');
+    
+    let deck_id = req.params.deckid;
+    let topic = 'topic';
+    let question = req.body.question;
+    let answer = req.body.answer;
+    let imgUrl =  req.body.imgUrl;
+     flashcard.addCard(deck_id, topic, question, answer, imgUrl)
+         .then((data) => {
+         console.log(data)
+        //  res.send(data);
+    res.redirect('/deck');
+     })
+        .catch((error) => {console.log(error);
+     })
 })
 
 
@@ -109,7 +123,9 @@ app.get('/deck/:deckid/test/:cardid', (req,res) => {
 })
 
 
+//DELETE CARD
 
+//DELETE DECK
 
 
 
