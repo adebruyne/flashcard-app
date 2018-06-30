@@ -73,12 +73,12 @@ app.post('/newdeck', (req, res) => {
 app.get('/deck/:deckid', (req,res) => {
     flashcard.showAllCards(req.params.deck_id)
         .then((data) => {
-            console.log(data);
-            // res.send(data);
-            res.render('deck-detail-page', data)
-        })
+             console.log(data)
+        //      res.send(req.params.deck_id)
+        //     // res.render('deck-detail-page', data)
+         })
         .catch((error) => {console.log(error);
-        })
+     })
    
     //get all the cards for one deck
 });
