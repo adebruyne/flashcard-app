@@ -59,8 +59,11 @@ app.post('/newdeck', (req, res) => {
     // res.send('You submitted a new deck!')
     flashcard.addDeck(req.body.topic)
         .then((data) => {
-            console.log(data);
-            res.send(data);
+            // console.log(data);
+            // res.send(data);
+            res.redirect('/deck');
+        })
+        .catch((error) => {console.log(error);
         })
 })
 
