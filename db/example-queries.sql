@@ -44,23 +44,3 @@ INSERT INTO Cards
 VALUES
 	('algorithms', 'Implement a Fibonacci Number Calculator', NULL, 'https://cdn-images-1.medium.com/max/800/1*pvfDpHBsI1suLSOYR2cO3g.png')
 
-
--- change question and/or answer - TBD
--- update Cards
--- where topic is languages
--- set
--- 	question='Describe backend processing.',
--- 	answer='whiteboard this concept'
--- where id=1;  --how will I know what id this question is????
-
--- search by topic, should have 0 results - TBD
--- select * from Cards
--- where question ilike '%ttttttt%';
-
--- search by topic, should have 1 result - TBD
--- select * from Cards
--- where question ilike '%Node.js%';
-
--- delete by id - TBD
--- delete from Cards where id=6;
-

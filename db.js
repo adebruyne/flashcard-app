@@ -14,20 +14,14 @@ const db = pgp(cn);
 
 
 
-//SHOW
+//SHOW++++++++++++++++++++++++++++++++
 function showOneDeck(deck_id) {
-  return db.oneOrNone('SELECT * FROM Decks where deck_id= $1', [deck_id])
+  return db.oneOrNone(`SELECT * FROM Decks where deck_id= $1`, [deck_id])
 }
 
 // showOneDeck(2)
-//   .then(function(data){
-//     //success 
-//     console.log(data);  
-//   })
-//   .catch(function(error){
-//     //error;
-//     console.log(error);
-//   })
+//   .then((data) => {console.log(data);})
+//   .catch((error) => {console.log(error);});
 
 
 function showAllDecks() {
@@ -40,23 +34,18 @@ function showAllDecks() {
 
 
 function showAllCards(deck_id) {
-  return db.any('SELECT * FROM Cards WHERE deck_id=$1', [deck_id])
+  return db.any(`SELECT * FROM Cards WHERE deck_id=$1`, [deck_id])
 }
 
 // showAllCards(1)
-// .then(function(data){
-//   //success
-//   console.log(data);  
-// })
-// .catch(function(error){
-//   //error;
-//   console.log(error);
-// })
+//   .then((data) => {console.log(data);})
+//   .catch((error) => {console.log(error);});
 
 
-//ADD
+
+//ADD+++++++++++++++++++++++++++++++++
 function addCard(deck_id, topic, question, answer, imgUrl) {
-  return db.one("INSERT INTO Cards (deck_id, topic, question, answer, imgUrl) VALUES ($1, '$1#', '$2#', '$3#', '$4#') returning card_id", [deck_id, topic, question, answer, imgUrl])
+  return db.one(`INSERT INTO Cards (deck_id, topic, question, answer, imgUrl) VALUES ($1, '$1#', '$2#', '$3#', '$4#') returning card_id`, [deck_id, topic, question, answer, imgUrl])
 }
 
 // addCard(2, 'algorithms', 'Implement a Fibonacci Number Calculator', 'see diagram', 'https://cdn-images-1.medium.com/max/800/1*pvfDpHBsI1suLSOYR2cO3g.png')
@@ -71,7 +60,7 @@ function addCard(deck_id, topic, question, answer, imgUrl) {
 
 
 function addDeck(topic) {
-  return db.one("INSERT INTO Decks(topic) VALUES('$1#') returning deck_id", [topic])
+  return db.one(`INSERT INTO Decks(topic) VALUES('$1#') returning deck_id`, [topic])
 }
 
 // addDeck('biology')
@@ -85,28 +74,32 @@ function addDeck(topic) {
 //   });
 
 
-//CHECK IF ANSWER IS RIGHT WRONG
+//CHECK IF ANSWER IS RIGHT WRONG++++++++++++++++++++++++++++++
 function setTest(card_id, isRight) {
-  return db.query("INSERT INTO Tests(card_id, isRight) VALUES($1, $2)", [card_id, isRight])
+  return db.query(`INSERT INTO Tests(card_id, isRight) VALUES($1, $2)`, [card_id, isRight])
 }
 
 // setTest(4, false)
-//   .then(function(data){
-//     //success
-//     console.log(data);  
-//   })
-//   .catch(function(error){
-//     //error;
-//     console.log(error);
-//   });
+//   .then((data) => {console.log(data);})
+//   .catch((error) => {console.log(error);});
 
 
-//DELETE TESTS
+//DELETE++++++++++++++++++++++++++++++++++++
 function deleteTests() {
-  return db.result("DELETE FROM Tests");
+  return db.result(`DELETE FROM Tests`);
 }
 
 // deleteTests()
+//   .then((data) => {console.log(data);})
+//   .catch((error) => {console.log(error);});
+
+
+
+function deleteADeck(deck_id) {
+  return db.oneOrNone(`DELETE FROM decks WHERE deck_id = $1`, [deck_id]);
+}
+
+// deleteADeck(30)
 //   .then((data) => {console.log(data);})
 //   .catch((error) => {console.log(error);});
 
@@ -120,10 +113,10 @@ module.exports = {
   addCard,
   setTest,
   deleteTests,
-  // updateIsRight
-    // deleteDeck,
+  deleteADeck,
     // deleteCard,
     // updateDeck,
-    // updateCard
+    // updateCard,
+    //updateIsRight
 
 };
