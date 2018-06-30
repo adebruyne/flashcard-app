@@ -45,18 +45,12 @@ function showAllCards(deck_id) {
 
 //ADD+++++++++++++++++++++++++++++++++
 function addCard(deck_id, topic, question, answer, imgUrl) {
-  return db.one(`INSERT INTO Cards (deck_id, topic, question, answer, imgUrl) VALUES ($1, '$1#', '$2#', '$3#', '$4#') returning card_id`, [deck_id, topic, question, answer, imgUrl])
+  return db.one(`INSERT INTO Cards (deck_id, topic, question, answer, imgUrl) VALUES ($1, '$2#', '$3#', '$4#', '$5#') returning card_id`, [deck_id, topic, question, answer, imgUrl])
 }
 
-// addCard(2, 'algorithms', 'Implement a Fibonacci Number Calculator', 'see diagram', 'https://cdn-images-1.medium.com/max/800/1*pvfDpHBsI1suLSOYR2cO3g.png')
-//   .then(function(data){
-//     //success
-//     console.log(data);  
-//   })
-//   .catch(function(error){
-//     //error;
-//     console.log(error);
-//   });
+addCard(34, 'algorithms', 'Implement a Fibonacci Number Calculator', 'see diagram', 'https://cdn-images-1.medium.com/max/800/1*pvfDpHBsI1suLSOYR2cO3g.png')
+  .then((data) => {console.log(data);})
+  .catch((error) => {console.log(error);});
 
 
 function addDeck(topic) {
@@ -64,14 +58,8 @@ function addDeck(topic) {
 }
 
 // addDeck('biology')
-//   .then(function(data){
-//     //success
-//     console.log(data);  
-//   })
-//   .catch(function(error){
-//     //error;
-//     console.log(error);
-//   });
+//   .then((data) => {console.log(data);})
+//   .catch((error) => {console.log(error);});
 
 
 //CHECK IF ANSWER IS RIGHT WRONG++++++++++++++++++++++++++++++
@@ -104,6 +92,15 @@ function deleteADeck(deck_id) {
 //   .catch((error) => {console.log(error);});
 
 
+function deleteACard(card_id) {
+  return db.one(`DELETE FROM cards WHERE card_id = $1`, [card_id])
+}
+
+// deleteACard(3)
+//   .then((data) => {console.log(data);})
+//   .catch((error) => {console.log(error);});
+
+
 
 module.exports = {
   showOneDeck,
@@ -114,9 +111,9 @@ module.exports = {
   setTest,
   deleteTests,
   deleteADeck,
-    // deleteCard,
-    // updateDeck,
-    // updateCard,
+  deleteACard,
+    //updateDeck,
+    //updateCard,
     //updateIsRight
 
 };
