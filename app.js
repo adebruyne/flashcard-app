@@ -123,7 +123,9 @@ app.get('/deck/:deckid/test/:cardid', (req,res) => {
 })
 
 
+//DELETE CARD
 
+//DELETE DECK
 
 
 
