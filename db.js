@@ -48,9 +48,9 @@ function addCard(deck_id, topic, question, answer, imgUrl) {
   return db.one(`INSERT INTO Cards (deck_id, topic, question, answer, imgUrl) VALUES ($1, '$2#', '$3#', '$4#', '$5#') returning card_id`, [deck_id, topic, question, answer, imgUrl])
 }
 
-addCard(34, 'algorithms', 'Implement a Fibonacci Number Calculator', 'see diagram', 'https://cdn-images-1.medium.com/max/800/1*pvfDpHBsI1suLSOYR2cO3g.png')
-  .then((data) => {console.log(data);})
-  .catch((error) => {console.log(error);});
+// addCard(34, 'algorithms', 'Implement a Fibonacci Number Calculator', 'see diagram', 'https://cdn-images-1.medium.com/max/800/1*pvfDpHBsI1suLSOYR2cO3g.png')
+//   .then((data) => {console.log(data);})
+//   .catch((error) => {console.log(error);});
 
 
 function addDeck(topic) {
