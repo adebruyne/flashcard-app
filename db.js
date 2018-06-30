@@ -90,15 +90,15 @@ function setTest(card_id, isRight) {
   return db.query("INSERT INTO Tests(card_id, isRight) VALUES($1, $2)", [card_id, isRight])
 }
 
-setTest(4, false)
-  .then(function(data){
-    //success
-    console.log(data);  
-  })
-  .catch(function(error){
-    //error;
-    console.log(error);
-  });
+// setTest(4, false)
+//   .then(function(data){
+//     //success
+//     console.log(data);  
+//   })
+//   .catch(function(error){
+//     //error;
+//     console.log(error);
+//   });
 
 
 //DELETE TESTS

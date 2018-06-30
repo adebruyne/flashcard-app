@@ -31,13 +31,17 @@ app.get('/', (req,res) => {
 
 //ROUTE TO ALL THE DECKS
 app.get('/deck', (req,res) => {
+    //get all the decks
     flashcard.showAllDecks()
         .then((data) => {
-           res.send(data);
+        //    res.send(data);
+        res.render('decks-page', {
+            decks: data
+        })
         })
         .catch((error) => {console.log(error);});
-    // res.render('decks-page')
-    //get all the decks
+    
+    
     
 });
 
@@ -51,14 +55,31 @@ app.get('/newdeck', (req, res) => {
     res.render('new-deck-page')
 }) 
 app.post('/newdeck', (req, res) => {
-    res.send('You submitted a new deck!')
+    console.log(req.body);
+    // res.send('You submitted a new deck!')
+    flashcard.addDeck(req.body.topic)
+        .then((data) => {
+            // console.log(data);
+            // res.send(data);
+            res.redirect('/deck');
+        })
+        .catch((error) => {console.log(error);
+        })
 })
 
 
 
 //ROUTE TO INDIVIDUAL DECK
 app.get('/deck/:deckid', (req,res) => {
-    res.render('deck-detail-page')
+    flashcard.showAllCards(req.params.deck_id)
+        .then((data) => {
+             console.log(data)
+        //      res.send(req.params.deck_id)
+        //     // res.render('deck-detail-page', data)
+         })
+        .catch((error) => {console.log(error);
+     })
+   
     //get all the cards for one deck
 });
 
