@@ -31,13 +31,17 @@ app.get('/', (req,res) => {
 
 //ROUTE TO ALL THE DECKS
 app.get('/deck', (req,res) => {
+    //get all the decks
     flashcard.showAllDecks()
         .then((data) => {
-           res.send(data);
+        //    res.send(data);
+        res.render('decks-page', {
+            decks: data
+        })
         })
         .catch((error) => {console.log(error);});
-    // res.render('decks-page')
-    //get all the decks
+    
+    
     
 });
 

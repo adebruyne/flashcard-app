@@ -1,17 +1,22 @@
 <div class= container>
 <h1>Here are all the decks</h1>
 </div>
-
+{{#each decks}}
 <div class="row">
   <div class="col-sm-6">
      <div class="card">
       <div class="card-body">
-        <h5 class="card-title">Deck 1</h5>
-       <p class="card-text">Learn some Concepts with analogies!</p>
-        <a href="/deck/:deckid" class="btn btn-primary">Go!</a>
+        <h5 class="card-title">{{deck_id}}</h5>
+       <p class="card-text">{{topic}}</p>
+        <a href="/deck/{{deck_id}}" class="btn btn-primary">Go!</a>
        </div>
     </div>
    </div>
  </div>
-
+{{/each}}
 <a href="/newdeck" class="btn btn-success btn-lg btn-block">Add a New Deck</a>
+
+
+
+
+
