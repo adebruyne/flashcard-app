@@ -101,13 +101,12 @@ app.post('/deck/:deckid/newcard', (req ,res) => {
     let topic = 'topic';
     let question = req.body.question;
     let answer = req.body.answer;
-    let imgURL = req.body.imgurl;
-    console.log(req.body);
+    let imgUrl =  req.body.imgUrl;
      flashcard.addCard(deck_id, topic, question, answer, imgUrl)
          .then((data) => {
          console.log(data)
-         res.send(data);
-    //     // res.redirect('/deck');
+        //  res.send(data);
+    res.redirect('/deck');
      })
         .catch((error) => {console.log(error);
      })
