@@ -71,18 +71,17 @@ app.post('/newdeck', (req, res) => {
 
 //ROUTE TO INDIVIDUAL DECK
 app.get('/deck/:deckid', (req,res) => {
-    flashcard.showAllCards(req.params.deck_id)
+    flashcard.showAllCards(req.params.deckid)
         .then((data) => {
              console.log(data)
-        //      res.send(req.params.deck_id)
-        //     // res.render('deck-detail-page', data)
+            //  res.send(req.params.deck_id)
+         res.render('deck-detail-page', {cards: data})
          })
         .catch((error) => {console.log(error);
      })
    
     //get all the cards for one deck
 });
-
 
 
 //ROUTE TO ADD A NEW CARD
