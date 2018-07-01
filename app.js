@@ -160,6 +160,13 @@ app.post('/deck/:deckid/newcard', (req ,res) => {
 ///////////////////////////////////DELETE CARD
 app.get('/delete/card/:cardid', (req,res) => {
     // res.send('This is the delete card page')
+    let card_id = req.params.cardid
+    flashcard.showOneCard(card_id)
+        .then((data) => {
+            res.render('delete-card-page',
+                data)
+        })
+        .catch((error) =>  console.log(error))
     //get one card from specific deck 
     //delete the card
 
