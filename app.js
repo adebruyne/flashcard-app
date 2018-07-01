@@ -171,6 +171,15 @@ app.get('/delete/card/:cardid', (req,res) => {
     //delete the card
 
 })
+app.post('/delete/card/:cardid', (req,res) => {
+    // res.send('You deleted it!')
+    let card_id = req.params.cardid
+    flashcard.deleteACard(card_id)
+        .then((data) => {
+            
+            res.redirect(`/deck/${req.body.deckid}`)
+        })
+})
 
 
 /////////////////////////////ROUTE TO TEST QUESTION
