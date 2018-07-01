@@ -1,0 +1,15 @@
+
+<h1>Are you sure you want to delete the Deck?</h1>
+
+
+
+<form action="/delete/{{deckid}}" method="POST">
+<input type="hidden" name="deckid" value="{{deckid}}">
+    <div class="form-group">
+      <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i>  DELETE WHOLE DECK</button> 
+  
+    </div>  
+</form>
+
+
+<a href="/deck" class="btn btn-info btn-lg btn-block">Back to All Decks</a>

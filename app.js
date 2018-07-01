@@ -23,13 +23,13 @@ app.use(static('public'));
 
 
 
-//ROUTE TO HOMEPAGE
+/////////////////////////ROUTE TO HOMEPAGE
 app.get('/', (req,res) => {
     res.render('homepage')
 })
 
 
-//ROUTE TO ALL THE DECKS
+/////////////////////////ROUTE TO ALL THE DECKS
 app.get('/deck', (req,res) => {
     //get all the decks
     flashcard.showAllDecks()
@@ -48,14 +48,14 @@ app.get('/deck', (req,res) => {
 
 
 
-//ROUTE TO ADD NEW DECK
+//////////////////////////ROUTE TO ADD NEW DECK
 app.get('/newdeck', (req, res) => {
     // res.send('new-deck-page')
     //Show a form for a new deck
     res.render('new-deck-page')
 }) 
 app.post('/newdeck', (req, res) => {
-    console.log(req.body);
+    // console.log(req.body);
     // res.send('You submitted a new deck!')
     flashcard.addDeck(req.body.topic)
         .then((data) => {
@@ -68,14 +68,45 @@ app.post('/newdeck', (req, res) => {
 })
 
 
+/////////////////////////////DELETE DECK
+app.get('/delete/:deckid', (req,res) => {
+    flashcard.showAllDecks(req.params.deckid)
+      
+        .then((data) => {
+        //    res.send(data);
+        res.render('delete-deck-page', {
+            deckid: req.params.deckid
+        })
+        })
+        .catch((error) => {console.log(error);});
 
-//ROUTE TO INDIVIDUAL DECK
+    //get one deck
+   //delete entire deck   
+})
+app.post('/delete/:deckid', (req, res) => {
+    let deckid = req.body.deckid
+    console.log(deckid)
+    flashcard.deleteADeck(deckid) 
+        .then((data) => {
+             res.redirect('/deck')
+            console.log(data)
+        })
+        .catch((error) => {console.log(error);
+        })
+        
+})
+
+
+////////////////////////////ROUTE TO INDIVIDUAL DECK
 app.get('/deck/:deckid', (req,res) => {
     flashcard.showAllCards(req.params.deckid)
         .then((data) => {
              console.log(data)
             //  res.send(req.params.deck_id)
-         res.render('deck-detail-page', {cards: data})
+         res.render('deck-detail-page',
+          {cards: data,
+            deck_id: req.params.deckid
+        })
          })
         .catch((error) => {console.log(error);
      })
@@ -84,48 +115,68 @@ app.get('/deck/:deckid', (req,res) => {
 });
 
 
-//ROUTE TO ADD A NEW CARD
+///////////////////////////ROUTE TO ADD A NEW CARD
 app.get('/deck/:deckid/newcard', (req,res) => {
-    
+    flashcard.showOneDeck(req.params.deckid)
+        .then((data) => {
+            console.log(data)
+            res.render('new-card-page',
+            {deckid: data.deck_id})
+     })
+     .catch((error) => {console.log(error);
+    })
     // res.send("You want a new card!")
     //Show a form for a new card
-    res.render('new-card-page')
+    
 })
 
 app.post('/deck/:deckid/newcard', (req ,res) => {
     // res.send('You submited the form')
     //add the 'question', 'answer', 'image' as a new card into the deck
-    // / res.redirect('/deck/:deckid');
-    
+    // res.redirect('/deck/:deckid');  
     let deck_id = req.params.deckid;
-    let topic = 'topic';
+    
     let question = req.body.question;
     let answer = req.body.answer;
     let imgUrl =  req.body.imgUrl;
-     flashcard.addCard(deck_id, topic, question, answer, imgUrl)
-         .then((data) => {
-         console.log(data)
-        //  res.send(data);
-    res.redirect('/deck');
-     })
-        .catch((error) => {console.log(error);
-     })
+   
+   
+    flashcard.showOneDeck(deck_id)
+        .then((deck) => {
+            let topic = deck.topic
+
+            flashcard.addCard(deck_id, topic, question, answer, imgUrl)
+            .then((data) => {
+                console.log(data)
+           //   res.send(data);
+           res.redirect(`/deck/${deck_id}`);
+        })
+           .catch((error) => {console.log(error);
+        })
+    })
+     
+})
+
+///////////////////////////////////DELETE CARD
+app.get('/delete/card/:cardid', (req,res) => {
+    // res.send('This is the delete card page')
+    //get one card from specific deck 
+    //delete the card
+
 })
 
 
-
-
-//ROUTE TO TEST QUESTION
-app.get('/deck/:deckid/test/:cardid', (req,res) => {
+/////////////////////////////ROUTE TO TEST QUESTION
+app.get('/deck/:deckid/test', (req,res) => {
     //get one card from specific deck
     // res.send('You got to answer this')
     res.render('test-page')
 })
 
 
-//DELETE CARD
 
-//DELETE DECK
+
+
 
 
 

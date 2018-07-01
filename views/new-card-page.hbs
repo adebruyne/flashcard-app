@@ -1,9 +1,9 @@
-<h1>Create a New Card</h1>
+<h1>Create a New Card in Deck {{deckid}}</h1>
 
-<form action="/deck/1/newcard" method="POST">
+<form action="/deck/{{deckid}}/newcard" method="POST">
     <div class="form-group">
         <label>Term</label>
-        <input type="text" class="form-control" name="question" id="">
+        <input type="text" class="form-control" name="question" >
     </div>
     <br>
     
