@@ -24,6 +24,15 @@ function showOneDeck(deck_id) {
 //   .catch((error) => {console.log(error);});
 
 
+function showOneCard(card_id) {
+  return db.oneOrNone(`SELECT * FROM Cards where card_id= $1`, [card_id])
+}
+
+// showOneCard(9)
+//   .then((data) => {console.log(data);})
+//   .catch((error) => {console.log(error);});
+
+
 function showAllDecks() {
   return db.any(`SELECT * FROM Decks`)
 }
@@ -102,9 +111,14 @@ function deleteACard(card_id) {
 //   .catch((error) => {console.log(error);});
 
 
+function getCardFromDeck
+  return db.one
+
+
 
 module.exports = {
   showOneDeck,
+  showOneCard,
   showAllDecks,
   showAllCards,
   addDeck,
@@ -113,6 +127,8 @@ module.exports = {
   deleteTests,
   deleteADeck,
   deleteACard,
+
+
     //updateDeck,
     //updateCard,
     //updateIsRight
