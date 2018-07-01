@@ -1,6 +1,10 @@
-insert into decks
+-- resetting the database
+
+DROP TABLE Decks CASCADE
+
+INSERT INTO Decks
 	(topic)
-values
+VALUES
 	('concepts'),
 	('languages'),
 	('algorithms')

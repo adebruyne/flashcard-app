@@ -44,3 +44,6 @@ INSERT INTO Cards
 VALUES
 	('algorithms', 'Implement a Fibonacci Number Calculator', NULL, 'https://cdn-images-1.medium.com/max/800/1*pvfDpHBsI1suLSOYR2cO3g.png')
 
+
+
+--get specific card from a specific topic in a deck
