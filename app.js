@@ -157,7 +157,13 @@ app.post('/deck/:deckid/newcard', (req ,res) => {
      
 })
 
+///////////////////////////////////DELETE CARD
+app.get('/delete/card/:cardid', (req,res) => {
+    // res.send('This is the delete card page')
+    //get one card from specific deck 
+    //delete the card
 
+})
 
 
 /////////////////////////////ROUTE TO TEST QUESTION
@@ -168,12 +174,7 @@ app.get('/deck/:deckid/test', (req,res) => {
 })
 
 
-//DELETE CARD
-app.get('/deck/:deckid/:cardid'), (req,res) => {
-    //get one card from specific deck 
-    //delete the card
 
-}
 
 
 
