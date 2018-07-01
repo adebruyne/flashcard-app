@@ -83,6 +83,9 @@ app.get('/delete/:deckid', (req,res) => {
     //get one deck
    //delete entire deck   
 })
+app.post('/delete/:deckid', (req, res) => {
+    
+})
 
 
 
