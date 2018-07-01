@@ -23,13 +23,13 @@ app.use(static('public'));
 
 
 
-//ROUTE TO HOMEPAGE
+/////////////////////////ROUTE TO HOMEPAGE
 app.get('/', (req,res) => {
     res.render('homepage')
 })
 
 
-//ROUTE TO ALL THE DECKS
+/////////////////////////ROUTE TO ALL THE DECKS
 app.get('/deck', (req,res) => {
     //get all the decks
     flashcard.showAllDecks()
@@ -48,7 +48,7 @@ app.get('/deck', (req,res) => {
 
 
 
-//ROUTE TO ADD NEW DECK
+//////////////////////////ROUTE TO ADD NEW DECK
 app.get('/newdeck', (req, res) => {
     // res.send('new-deck-page')
     //Show a form for a new deck
@@ -68,8 +68,15 @@ app.post('/newdeck', (req, res) => {
 })
 
 
+/////////////////////////////DELETE DECK
+app.get('/deck/:deckid'), (req,res) => {
+    //get one deck
+    //delete entire deck
+}
 
-//ROUTE TO INDIVIDUAL DECK
+
+
+////////////////////////////ROUTE TO INDIVIDUAL DECK
 app.get('/deck/:deckid', (req,res) => {
     flashcard.showAllCards(req.params.deckid)
         .then((data) => {
@@ -84,7 +91,7 @@ app.get('/deck/:deckid', (req,res) => {
 });
 
 
-//ROUTE TO ADD A NEW CARD
+///////////////////////////ROUTE TO ADD A NEW CARD
 app.get('/deck/:deckid/newcard', (req,res) => {
     
     // res.send("You want a new card!")
@@ -98,7 +105,7 @@ app.post('/deck/:deckid/newcard', (req ,res) => {
     // / res.redirect('/deck/:deckid');
     
     let deck_id = req.params.deckid;
-    let topic = 'topic';
+    let topic = req.params.topic;
     let question = req.body.question;
     let answer = req.body.answer;
     let imgUrl =  req.body.imgUrl;
@@ -106,7 +113,7 @@ app.post('/deck/:deckid/newcard', (req ,res) => {
          .then((data) => {
          console.log(data)
         //  res.send(data);
-    res.redirect('/deck');
+        res.redirect(`/deck/${data.deckid}`);
      })
         .catch((error) => {console.log(error);
      })
@@ -115,7 +122,7 @@ app.post('/deck/:deckid/newcard', (req ,res) => {
 
 
 
-//ROUTE TO TEST QUESTION
+/////////////////////////////ROUTE TO TEST QUESTION
 app.get('/deck/:deckid/test/:cardid', (req,res) => {
     //get one card from specific deck
     // res.send('You got to answer this')
@@ -124,8 +131,13 @@ app.get('/deck/:deckid/test/:cardid', (req,res) => {
 
 
 //DELETE CARD
+app.get('/deck/:deckid/:cardid'), (req,res) => {
+    //get one card from specific deck 
+    //delete the card
 
-//DELETE DECK
+}
+
+
 
 
 
