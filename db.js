@@ -85,10 +85,10 @@ function deleteTests() {
 
 
 function deleteADeck(deck_id) {
-  return db.oneOrNone(`DELETE FROM decks WHERE deck_id = $1`, [deck_id]);
+  return db.result(`DELETE FROM decks WHERE deck_id = $1`, [deck_id]);
 }
 
-// deleteADeck(30)
+// deleteADeck(4)
 //   .then((data) => {console.log(data);})
 //   .catch((error) => {console.log(error);});
 

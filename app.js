@@ -55,7 +55,7 @@ app.get('/newdeck', (req, res) => {
     res.render('new-deck-page')
 }) 
 app.post('/newdeck', (req, res) => {
-    console.log(req.body);
+    // console.log(req.body);
     // res.send('You submitted a new deck!')
     flashcard.addDeck(req.body.topic)
         .then((data) => {
@@ -70,12 +70,12 @@ app.post('/newdeck', (req, res) => {
 
 /////////////////////////////DELETE DECK
 app.get('/delete/:deckid', (req,res) => {
-    flashcard.showAllDecks()
+    flashcard.showAllDecks(req.params.deckid)
       
         .then((data) => {
         //    res.send(data);
         res.render('delete-deck-page', {
-            decks: data
+            deckid: req.params.deckid
         })
         })
         .catch((error) => {console.log(error);});
@@ -84,9 +84,17 @@ app.get('/delete/:deckid', (req,res) => {
    //delete entire deck   
 })
 app.post('/delete/:deckid', (req, res) => {
-    
+    let deckid = req.body.deckid
+    console.log(deckid)
+    flashcard.deleteADeck(deckid) 
+        .then((data) => {
+             res.redirect('/deck')
+            console.log(data)
+        })
+        .catch((error) => {console.log(error);
+        })
+        
 })
-
 
 
 ////////////////////////////ROUTE TO INDIVIDUAL DECK
@@ -124,7 +132,7 @@ app.post('/deck/:deckid/newcard', (req ,res) => {
     let imgUrl =  req.body.imgUrl;
      flashcard.addCard(deck_id, topic, question, answer, imgUrl)
          .then((data) => {
-         console.log(data)
+        //  console.log(data)
         //  res.send(data);
         res.redirect(`/deck/${data.deckid}`);
      })
