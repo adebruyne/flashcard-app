@@ -133,21 +133,28 @@ app.get('/deck/:deckid/newcard', (req,res) => {
 app.post('/deck/:deckid/newcard', (req ,res) => {
     // res.send('You submited the form')
     //add the 'question', 'answer', 'image' as a new card into the deck
-    // / res.redirect('/deck/:deckid');
-    
+    // res.redirect('/deck/:deckid');  
     let deck_id = req.params.deckid;
-    let topic = req.params.topic;
+    
     let question = req.body.question;
     let answer = req.body.answer;
     let imgUrl =  req.body.imgUrl;
-     flashcard.addCard(deck_id, topic, question, answer, imgUrl)
-         .then((data) => {
-        //  console.log(data)
-        //  res.send(data);
-        res.redirect(`/deck/${data.deckid}`);
-     })
-        .catch((error) => {console.log(error);
-     })
+   
+   
+    flashcard.showOneDeck(deck_id)
+        .then((deck) => {
+            let topic = deck.topic
+
+            flashcard.addCard(deck_id, topic, question, answer, imgUrl)
+            .then((data) => {
+                console.log(data)
+           //   res.send(data);
+           res.redirect(`/deck/${deck_id}`);
+        })
+           .catch((error) => {console.log(error);
+        })
+    })
+     
 })
 
 
