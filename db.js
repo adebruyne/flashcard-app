@@ -110,9 +110,13 @@ function deleteACard(card_id) {
 //   .then((data) => {console.log(data);})
 //   .catch((error) => {console.log(error);});
 
+function updateCard(card_id, newTitle) {
+  return db.result("update todos set title='$1#' where id=$2", [newTitle, id]);
+}
+// setTitle(6, 'drink some bourbon')
+//   .then((data) => { console.log(data); })
+//   .catch((error) => { console.log(error); });
 
-function getCardFromDeck
-  return db.one
 
 
 
@@ -127,10 +131,9 @@ module.exports = {
   deleteTests,
   deleteADeck,
   deleteACard,
-
+  updateCard,
 
     //updateDeck,
-    //updateCard,
     //updateIsRight
 
 };

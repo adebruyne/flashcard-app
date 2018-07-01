@@ -4,7 +4,7 @@ QuizMe
 LIVE DEMO *****LINK*****
 
 Overview:
-QuizMe is a Node.js/Express server-rendered...  alksdjflkasjdfkajsdfkjasdlkfjas;ldkfjaslkdfja;lksdjfalskdjfa.  Handlebars partials were used to render the front-end views. jfaksdjfkasjdf;kasjdflkajsdfklajsd;kfjaAdditions will be made in React.
+QuizMe is a Node.js/Express server-rendered...  alksdjflkasjdfkajsdfkjasdlkfjas;ldkfjaslkdfja;lksdjfalskdjfa.  Handlebars partials were used to render the front-end views. jfaksdjfkasjdf;kasjdflkajsdfklajsd;kfja. Additions will be made in React.
 
 Built by:
 Aylin DeBruyne
