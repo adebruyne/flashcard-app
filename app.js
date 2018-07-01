@@ -103,7 +103,10 @@ app.get('/deck/:deckid', (req,res) => {
         .then((data) => {
              console.log(data)
             //  res.send(req.params.deck_id)
-         res.render('deck-detail-page', {cards: data})
+         res.render('deck-detail-page',
+          {cards: data,
+            deck_id: req.params.deckid
+        })
          })
         .catch((error) => {console.log(error);
      })
@@ -114,10 +117,17 @@ app.get('/deck/:deckid', (req,res) => {
 
 ///////////////////////////ROUTE TO ADD A NEW CARD
 app.get('/deck/:deckid/newcard', (req,res) => {
-    
+    flashcard.showOneDeck(req.params.deckid)
+        .then((data) => {
+            console.log(data)
+            res.render('new-card-page',
+            {deckid: data.deck_id})
+     })
+     .catch((error) => {console.log(error);
+    })
     // res.send("You want a new card!")
     //Show a form for a new card
-    res.render('new-card-page')
+    
 })
 
 app.post('/deck/:deckid/newcard', (req ,res) => {
@@ -144,7 +154,7 @@ app.post('/deck/:deckid/newcard', (req ,res) => {
 
 
 /////////////////////////////ROUTE TO TEST QUESTION
-app.get('/deck/:deckid/test/:cardid', (req,res) => {
+app.get('/deck/:deckid/test', (req,res) => {
     //get one card from specific deck
     // res.send('You got to answer this')
     res.render('test-page')
