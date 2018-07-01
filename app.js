@@ -69,10 +69,20 @@ app.post('/newdeck', (req, res) => {
 
 
 /////////////////////////////DELETE DECK
-app.get('/deck/:deckid'), (req,res) => {
+app.get('/delete/:deckid', (req,res) => {
+    flashcard.showAllDecks()
+      
+        .then((data) => {
+        //    res.send(data);
+        res.render('delete-deck-page', {
+            decks: data
+        })
+        })
+        .catch((error) => {console.log(error);});
+
     //get one deck
-    //delete entire deck
-}
+   //delete entire deck   
+})
 
 
 
