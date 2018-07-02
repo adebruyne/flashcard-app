@@ -1,13 +1,23 @@
 
+
+
+
+
+
+
+
+
+
 <div class="container">
-    <h1>Your results!</h1>
-
-    <p>You got {{totalRight}}/{{totalNumber}} right!</p>
-
-        <form action="/results" method="POST">
-    
-                            
-        <button type="submit" class="btn btn-primary btn-lg">All Done!</button>
-                            
-        </form>
+    <div class= "row">
+        <div class="col">
+            <div id="content">
+                 <h1>Your results!</h1>
+                 <p>You got {{totalRight}}/{{totalNumber}} right!</p>
+                <form action="/results" method="POST">
+                    <button type="submit" class="btn btn-primary btn-lg">All Done!</button>
+                </form>
+            </div>
         </div>
+    </div> 
+</div>
