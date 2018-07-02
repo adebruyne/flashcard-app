@@ -1,4 +1,4 @@
-<h1>Create a New Card in Deck {{deckid}}</h1>
+<h1>Create a New Card in this Deck </h1>
 
 <form action="/deck/{{deckid}}/newcard" method="POST">
     <div class="form-group">
@@ -18,5 +18,8 @@
         <input class="form-control" type="text" name="imgUrl" placeholder="image url">
     </div>
     <hr>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary">ADD THIS CARD</button>
 </form>
+
+<hr>
+<a href="/deck" class="btn btn-info btn-lg btn-block">Back to All Decks</a>
