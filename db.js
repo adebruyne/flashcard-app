@@ -141,6 +141,14 @@ ORDER BY
   )
 }
 
+//SHOW ALL THE RESULTS FROM TESTS TABLE
+function showAllResults() {
+  return db.any(`SELECT * FROM Tests`)
+}
+
+// showAllResults()
+//   .then((data) => {console.log(data);})
+//   .catch((error) => {console.log(error);});
 
 module.exports = {
   showOneDeck,
@@ -154,7 +162,8 @@ module.exports = {
   deleteADeck,
   deleteACard,
   updateCard,
-  getCardwithAnswers
+  getCardwithAnswers,
+  showAllResults
     //updateDeck,
     //updateIsRight
 

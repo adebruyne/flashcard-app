@@ -206,8 +206,9 @@ app.get('/deck/:deckid/test', (req,res) => {
          
     })
     .catch((error) => console.log(error))
-       
-app.post('/deck/:deckid/test', (req,res) => {
+ })      
+
+ app.post('/deck/:deckid/test', (req,res) => {
     console.log(req.body)
     let card_id = req.body.card_id;
     let isRight = req.body.isRight;
@@ -218,20 +219,15 @@ app.post('/deck/:deckid/test', (req,res) => {
     })
    
 })  
-    
-    
-    
-    
-    //get one card from specific deck
-    // res.send('You got to answer this')
-    
 
 
 
 
-
+///////////////////////ROUTE TO RESULTS
+app.get('/results', (req, res) => {
+    // res.send("The results!")
+    
 })
-
 
 
 
