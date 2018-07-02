@@ -184,9 +184,26 @@ app.post('/delete/card/:cardid', (req,res) => {
 
 /////////////////////////////ROUTE TO TEST QUESTION
 app.get('/deck/:deckid/test', (req,res) => {
+    flashcard.showAllCards(req.params.deckid)
+    .then((data) => { 
+        console.log(data)
+        res.send(data)
+        //  res.render('test-page'
+    })
+       
+    
+    
+    
+    
+    
     //get one card from specific deck
     // res.send('You got to answer this')
-    res.render('test-page')
+    
+
+
+
+
+
 })
 
 
