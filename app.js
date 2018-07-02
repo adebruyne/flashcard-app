@@ -187,8 +187,9 @@ app.get('/deck/:deckid/test', (req,res) => {
     flashcard.showAllCards(req.params.deckid)
     .then((data) => { 
         console.log(data)
-        res.send(data)
-        //  res.render('test-page'
+        // res.send(data)
+         res.render('test-page', 
+        {cards: data})
     })
        
     
