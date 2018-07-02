@@ -3,9 +3,9 @@
 INSERT INTO Decks
 	(topic)
 VALUES
-	('concepts'),
-	('technologies'),
-	('algorithms')
+	('Concepts'),
+	('Technologies'),
+	('Algorithms')
 ;
 
 
@@ -32,7 +32,7 @@ VALUES
 	('Technologies', 'AWS', 'Amazon Web Services (AWS) is a subsidiary of Amazon.com that provides on-demand cloud computing platforms to individuals, companies and governments, on a paid subscription basis. The technology allows subscribers to have at their disposal a virtual cluster of computers, available all the time, through the Internet.', 'https://s3-us-west-2.amazonaws.com/paubox-blog/blog/wp-content/uploads/2017/03/22113109/AWS-logo.png'),
 	('Technologies', 'JSON', 'Stands for "JavaScript Object Notation" and is a text-based data interchange format designed for transmitting structured data between web applications and web servers.  JSON is often viewed as an alternative to XML, another plain text data interchange format. The JSON representation of an object is more compact than the XML representation because it does not require tags for each element.', 'https://cdn-images-1.medium.com/max/512/1*BzD9VGIbTmQpANue7eC1Rw.png'),
 	('Technologies', 'CSS', 'Stands for Cascading Style Sheet. Cascading style sheets are used to format the layout of Web pages. They can be used to define text styles, table sizes, and other aspects of Web pages that previously could only be defined in in the HTML of a page.  CSS helps Web developers create a uniform look across several pages of a Web site.', 'https://content.linkedin.com/content/dam/me/learning/blog/2016/september/CSS.jpg'),
-	('Technologies', 'HTML', 'Stands for Hypertext Markup Language. HTML is the language used to create webpages. Hypertext refers to the hyperlinks that an HTML page may contain. Markup language refers to the way tags are used to define the page layout and elements within the page.', 'https://www.besthosting.com/wp-content/uploads/2016/06/HTML-Website.jpg')
+	('Technologies', 'HTML', 'Stands for Hypertext Markup Language. HTML is the language used to create webpages. Hypertext refers to the hyperlinks that an HTML page may contain. Markup language refers to the way tags are used to define the page layout and elements within the page.', 'https://www.besthosting.com/wp-content/uploads/2016/06/HTML-Website.jpg'),
     ('Algorithms', 'Python Bubblesort', 'A simple sorting algorithm that repeatedly steps through the list to be sorted, compares each pair of adjacent items and swaps them if they are in the wrong order. The pass through the list is repeated until no swaps are needed, which indicates that the list is sorted', 'https://www.w3resource.com/w3r_images/bubble-short.png'),
     ('Algorithms', 'Find the First Unique Character In A String of Random Characters', 'Use a character as an index in a count array. Traverse the given string and store index of first occurrence of every character, also store count of occurrences. Then traverse the count array and find the smallest index with count as 1.', NULL),
     ('Algorithms', 'Sorting An Array', 'Given array of arrays, sort them in ascending order.', NULL),

@@ -1,9 +1,9 @@
 -- database name is flashcards
 
 DROP TABLE IF EXISTS Sessions;
-DROP TABLE IF EXISTS Decks;
-DROP TABLE IF EXISTS Cards;
 DROP TABLE IF EXISTS Tests;
+DROP TABLE IF EXISTS Cards;
+DROP TABLE IF EXISTS Decks;
 
 -- create db flashcards;
 
