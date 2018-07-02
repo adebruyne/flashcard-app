@@ -118,6 +118,13 @@ function updateCard(card_id, newTitle) {
 //   .catch((error) => { console.log(error); });
 
 
+function showAllResults() {
+    return db.any(`SELECT * FROM Tests`)
+  }
+  
+  // showAllResults()
+  //   .then((data) => {console.log(data);})
+  //   .catch((error) => {console.log(error);});
 
 
 module.exports = {
@@ -132,6 +139,7 @@ module.exports = {
   deleteADeck,
   deleteACard,
   updateCard,
+  showAllResults
 
     //updateDeck,
     //updateIsRight
