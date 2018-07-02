@@ -136,6 +136,7 @@ border-radius: 0;
                          <div class="card-body">
                             
                             <p class="card-text">{{this.answer}}</p>
+                            <br>
                             <form action="/deck/{{this.deck_id}}/test" method="POST">
                             <input type="hidden" name="card_id" value="{{this.card_id}}">
                             <input type="hidden" name="isRight" value="true">
