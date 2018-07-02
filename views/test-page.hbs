@@ -80,7 +80,7 @@ border-radius: 0;
     We'll show you your results at the end!
 </p>
 <br><br>
-    {{#each cards}}
+    {{!-- {{#each cards}}
     <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
         <div class="mainflip">
             <div class="frontside">
@@ -113,5 +113,48 @@ border-radius: 0;
  <p>Select one</p>
 
  
-{{/each}}	
+{{!-- {{/each}}	 --}}
 
+
+
+
+
+<div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+        <div class="mainflip">
+            <div class="frontside">
+                <div class="card" style="width:20rem;">
+                    <img class="card-img-top img- fluid" src="{{this.imgurl}}" alt="card image">
+                    <div class="card-body">
+                        <h4 class="card-title">{{this.question}}</h4>
+
+                    </div>
+                </div>
+            </div>
+            <div class="backside">
+                <div class="card" style="width:20rem;">
+                    <div class="card-header">{{this.question}}</div>
+                         <div class="card-body">
+                            
+                            <p class="card-text">{{this.answer}}</p>
+                            <br>
+                            <form action="/deck/{{this.deck_id}}/test" method="POST">
+                            <input type="hidden" name="card_id" value="{{this.card_id}}">
+                            <input type="hidden" name="isRight" value="true">
+                           <button type="submit" class="btn btn-outline-success btn-lg">Right</button>
+                            </form>
+
+                             <form action="/deck/{{this.deck_id}}/test" method="POST">
+                            <input type="hidden" name="card_id" value="{{this.card_id}}">
+                            <input type="hidden" name="isRight" value="false">
+                            <button type="submit" class="btn btn-outline-danger btn-lg">Wrong</button>
+                            </form>
+                            
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+</form>
