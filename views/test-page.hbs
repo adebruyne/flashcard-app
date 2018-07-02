@@ -134,15 +134,17 @@ border-radius: 0;
                 <div class="card" style="width:20rem;">
                     <div class="card-header">{{this.question}}</div>
                          <div class="card-body">
-                            
+                           
                             <p class="card-text">{{this.answer}}</p>
                             <br>
+                             <hr>
+                            <p>I guessed:</p>
                             <form action="/deck/{{this.deck_id}}/test" method="POST">
                             <input type="hidden" name="card_id" value="{{this.card_id}}">
                             <input type="hidden" name="isRight" value="true">
                            <button type="submit" class="btn btn-outline-success btn-lg">Right</button>
                             </form>
-
+                            <br>
                              <form action="/deck/{{this.deck_id}}/test" method="POST">
                             <input type="hidden" name="card_id" value="{{this.card_id}}">
                             <input type="hidden" name="isRight" value="false">
