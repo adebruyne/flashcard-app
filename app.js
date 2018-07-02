@@ -201,7 +201,7 @@ app.get('/deck/:deckid/test', (req,res) => {
            
         }
         if(!isFound){
-          res.redirect('results-page');  
+          res.redirect('/results');  
         }
          
     })
@@ -226,10 +226,28 @@ app.get('/deck/:deckid/test', (req,res) => {
 ///////////////////////ROUTE TO RESULTS
 app.get('/results', (req, res) => {
     // res.send("The results!")
+    flashcard.showAllResults()
+    .then((data) => {
+        console.log(data)
+
+        let totalNumber = data.length;
+        let totalRight = 0;
+        for(let i=0; i<totalNumber; i++){
+            if(data[i].isright){
+                totalRight = totalRight + 1;
+            }
+        }
+
+        res.render('results-page', 
+        {totalNumber,
+        totalRight})
+
+    })
     
+    .catch((error) => console.log(error))
 })
 
-
+app.post('/results',(req,res))
 
 
 
