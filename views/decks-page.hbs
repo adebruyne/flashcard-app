@@ -1,12 +1,23 @@
 
+<style>
+  h1{
+    text-align: center;
+    font-weight: 700;
+    font-size: 2em;
+  }
 
+
+
+
+</style>
 
 
 
 
 
 <div class= container>
-<h1>Here are all you decks:</h1>
+<h1>ALL YOUR DECKS</h1>
+<hr>
 </div>
 
 
@@ -14,10 +25,10 @@
     <div class="row">
   
        {{#each decks}}
-          <div class="col-sm-5">
-            <div class="card">
+          <div class="col-sm-6">
+            <div class="card text-center bg-info text-white">
               <div class="card-body">
-                <h5 class="card-title">{{topic}}</h5>
+                <h5 class="card-title text-uppercase">{{topic}}</h5>
                 <p class="card-text"></p>
                 <a href="/deck/{{deck_id}}" class="btn btn-secondary">See Cards <i class="fas fa-arrow-right"></i></a>
                  {{!-- <button class= "btn btn-warning"><i class="fas fa-edit"></i>Edit</button> --}}
@@ -31,9 +42,7 @@
          {{/each}}
     </div>
  </div>
- <br>
-
-<br>
+ <hr>
 <a href="/newdeck" class="btn btn-success btn-lg btn-block">Add a New Deck</a>
 
 
