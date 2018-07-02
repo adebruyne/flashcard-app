@@ -103,7 +103,7 @@ function deleteADeck(deck_id) {
 
 
 function deleteACard(card_id) {
-  return db.one(`DELETE FROM cards WHERE card_id = $1`, [card_id])
+  return db.result(`DELETE FROM cards WHERE card_id = $1`, [card_id])
 }
 
 // deleteACard(3)

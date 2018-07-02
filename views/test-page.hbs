@@ -1,7 +1,6 @@
 
 
-<h1>Testing-testing...</h1>
-<h2>...one two three.</h2>
+
    
 
 <!-- Rotating card -->
@@ -74,35 +73,45 @@ border-radius: 0;
 </style>
 </head>
 <body>
+<h1>Testing, testing</h1>
+<h2>...one two three.</h2>
+<br>
+<p>Take a guess at each term. Hover over the card to see if you got it right. Select if you guessed right or wrong.
+    We'll show you your results at the end!
+</p>
+<br><br>
+    {{#each cards}}
     <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
         <div class="mainflip">
             <div class="frontside">
                 <div class="card" style="width:20rem;">
-                    <img class="card-img-top img- fluid" src="https://images.unsplash.com/photo-1472437774355-71ab6752b434?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=dd4d735954f33290fbf984e4eb7abe32&auto=format&fit=crop&w=800&q=60" alt="card image">
+                    <img class="card-img-top img- fluid" src="{{imgurl}}" alt="card image">
                     <div class="card-body">
-                        <h4 class="card-title">TERM</h4>
+                        <h4 class="card-title">{{question}}</h4>
 
                     </div>
                 </div>
             </div>
             <div class="backside">
                 <div class="card" style="width:20rem;">
-                    <div class="card-header">TERM</div>
+                    <div class="card-header">{{question}}</div>
                          <div class="card-body">
                             
-                            <p class="card-text">This is where the description will go!</p>
-                           
+                            <p class="card-text">{{answer}}</p>
+                           <button type="button" class="btn btn-outline-success btn-lg">Right</button>
+
+                            <button type="button" class="btn btn-outline-danger btn-lg">Wrong</button>
                         </div>
                     
                 </div>
             </div>
         </div>
+        
     </div>
 
  <h5>I guessed:</h5>
  <p>Select one</p>
 
- <button type="button" class="btn btn-outline-success btn-lg">Right</button>
-<button type="button" class="btn btn-outline-danger btn-lg">Wrong</button>
-	
+ 
+{{/each}}	
 

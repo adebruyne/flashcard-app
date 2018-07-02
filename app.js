@@ -85,11 +85,11 @@ app.get('/delete/:deckid', (req,res) => {
 })
 app.post('/delete/:deckid', (req, res) => {
     let deckid = req.body.deckid
-    console.log(deckid)
+    // console.log(deckid)
     flashcard.deleteADeck(deckid) 
         .then((data) => {
              res.redirect('/deck')
-            console.log(data)
+            // console.log(data)
         })
         .catch((error) => {console.log(error);
         })
@@ -160,17 +160,51 @@ app.post('/deck/:deckid/newcard', (req ,res) => {
 ///////////////////////////////////DELETE CARD
 app.get('/delete/card/:cardid', (req,res) => {
     // res.send('This is the delete card page')
+    let card_id = req.params.cardid
+    flashcard.showOneCard(card_id)
+        .then((data) => {
+            res.render('delete-card-page',
+                data)
+        })
+        .catch((error) =>  console.log(error))
     //get one card from specific deck 
     //delete the card
 
+})
+app.post('/delete/card/:cardid', (req,res) => {
+    // res.send('You deleted it!')
+    let card_id = req.params.cardid
+    flashcard.deleteACard(card_id)
+        .then((data) => {
+            
+            res.redirect(`/deck/${req.body.deckid}`)
+        })
 })
 
 
 /////////////////////////////ROUTE TO TEST QUESTION
 app.get('/deck/:deckid/test', (req,res) => {
+    flashcard.showAllCards(req.params.deckid)
+    .then((data) => { 
+        console.log(data)
+        // res.send(data)
+         res.render('test-page', 
+        {cards: data})
+    })
+       
+    
+    
+    
+    
+    
     //get one card from specific deck
     // res.send('You got to answer this')
-    res.render('test-page')
+    
+
+
+
+
+
 })
 
 
