@@ -50,6 +50,14 @@ function showAllCards(deck_id) {
 //   .then((data) => {console.log(data);})
 //   .catch((error) => {console.log(error);});
 
+function showAllResults() {
+    return db.any(`SELECT * FROM Tests`)
+  }
+  
+  // showAllResults()
+  //   .then((data) => {console.log(data);})
+  //   .catch((error) => {console.log(error);});
+
 
 
 //ADD+++++++++++++++++++++++++++++++++
@@ -110,6 +118,11 @@ function deleteACard(card_id) {
 //   .then((data) => {console.log(data);})
 //   .catch((error) => {console.log(error);});
 
+
+
+
+//UPDATE++++++++++++++++++++++++++++++
+
 function updateCard(card_id, newTitle) {
   return db.result("update todos set title='$1#' where id=$2", [newTitle, id]);
 }
@@ -118,13 +131,31 @@ function updateCard(card_id, newTitle) {
 //   .catch((error) => { console.log(error); });
 
 
-function showAllResults() {
-    return db.any(`SELECT * FROM Tests`)
-  }
-  
-  // showAllResults()
-  //   .then((data) => {console.log(data);})
-  //   .catch((error) => {console.log(error);});
+
+
+//GET ALL THE CARDS FROM A DECK AND HOW MANY ANSWERS THERE ARE+++++++++++++++++++++++++++++++++++
+function getCardwithAnswers(deck_id){
+  return db.query(`
+  SELECT COUNT(tests.isright) as answerCount,
+    cards.*
+    
+FROM 
+    Cards
+    
+LEFT JOIN
+    Tests ON tests.card_id=cards.card_id
+
+WHERE
+    cards.deck_id=$1
+    
+GROUP BY 
+	cards.card_id
+
+ORDER BY
+	cards.card_id`,[deck_id]
+  )
+}
+
 
 
 module.exports = {
@@ -139,9 +170,7 @@ module.exports = {
   deleteADeck,
   deleteACard,
   updateCard,
-  showAllResults
-
-    //updateDeck,
-    //updateIsRight
+  showAllResults,
+  getCardwithAnswers,
 
 };
