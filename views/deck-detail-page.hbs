@@ -8,12 +8,20 @@
 </style>
 
 
-<div class= container>
-<h1>Flashcards for this Deck:</h1>
-</div>
+  <div class= container>
+    <h1>Flashcards for this Deck:</h1>
+  </div>
 <hr>
+  <div class="container">
+      <a href="/deck/{{deck_id}}/newcard" class="btn btn-success btn-lg btn-block">Add a New Card</a>
+    <br>
+      <a href="/deck/{{deck_id}}/test" class="btn btn-danger btn-lg btn-block">Test Your Skills</a>
+    <br>
+      <a href="/deck" class="btn btn-info btn-lg btn-block">Back to All Decks</a>
+
+<hr>
+
 <h4>LET'S REVIEW:</h4>
-<hr>
     {{!-- create a card for each card in deck --}}
 <div class="container">
   <div class="row">
@@ -43,11 +51,7 @@
   </div>
 </div>  
 {{!-- Buttons --}}
-<a href="/deck/{{deck_id}}/newcard" class="btn btn-success btn-lg btn-block">Add a New Card</a>
 
-<a href="/deck/{{deck_id}}/test" class="btn btn-danger btn-lg btn-block">Test Your Skills</a>
-
-<a href="/deck" class="btn btn-info btn-lg btn-block">Back to All Decks</a>
 
 
 
