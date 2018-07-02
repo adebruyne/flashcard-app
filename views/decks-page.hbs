@@ -1,21 +1,39 @@
+
+
+
+
+
+
+
 <div class= container>
-<h1>Here are all the decks</h1>
+<h1>Here are all you decks:</h1>
 </div>
-{{#each decks}}
-<div class="row">
-  <div class="col-sm-6">
-     <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">{{deck_id}}</h5>
-       <p class="card-text">{{topic}}</p>
-        <a href="/deck/{{deck_id}}" class="btn btn-primary">Go!</a>
-        <button class= "btn btn-warning"><i class="fas fa-edit"></i>Edit</button>
-        <a href="/delete/{{deck_id}}" class= "btn btn-danger delete-deck"><i class="fas fa-trash-alt"></i></a>
-       </div>
+
+
+  <div  class="container"> 
+    <div class="row">
+  
+       {{#each decks}}
+          <div class="col-sm-5">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">{{topic}}</h5>
+                <p class="card-text"></p>
+                <a href="/deck/{{deck_id}}" class="btn btn-secondary">See Cards <i class="fas fa-arrow-right"></i></a>
+                 {{!-- <button class= "btn btn-warning"><i class="fas fa-edit"></i>Edit</button> --}}
+                <a href="/delete/{{deck_id}}" class= "btn btn-danger delete-deck"><i class="fas fa-trash-alt"></i></a>
+              </div>
+               <br>
+            </div>
+            <br>
+          </div>
+   
+         {{/each}}
     </div>
-   </div>
  </div>
-{{/each}}
+ <br>
+
+<br>
 <a href="/newdeck" class="btn btn-success btn-lg btn-block">Add a New Deck</a>
 
 
