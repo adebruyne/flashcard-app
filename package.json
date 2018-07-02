@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon app.js",
-    "resetdb": "dropdb flashcard-app; createdb flashcard-app; psql -d flashcard-app -f schema.sql; psql -d flashcard-app -f dummy-data.sql",
+    "resetdb": "dropdb flashcard-app; createdb flashcard-app; psql -d flashcard-app -f db/schema.sql; psql -d flashcard-app -f db/seed.sql",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

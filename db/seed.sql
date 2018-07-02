@@ -46,7 +46,7 @@ VALUES
 ;
 
 
-INSERT INTO tests
+INSERT INTO Tests
 	(isRight)
 VALUES
 	(true),

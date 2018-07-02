@@ -30,3 +30,16 @@ CREATE TABLE Tests(
     card_id INTEGER REFERENCES Cards(card_id),
     isRight BOOLEAN
 );
+
+SELECT COUNT(tests.isright) as answerCount,
+    cards.*
+FROM 
+    Cards
+LEFT JOIN
+    Tests ON tests.card_id=cards.card_id
+WHERE
+    cards.deck_id=1  
+GROUP BY 
+	cards.card_id
+ORDER BY
+	cards.card_id
