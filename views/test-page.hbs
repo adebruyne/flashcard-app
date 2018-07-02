@@ -1,7 +1,6 @@
 
 
-<h1>Testing-testing...</h1>
-<h2>...one two three.</h2>
+
    
 
 <!-- Rotating card -->
@@ -74,7 +73,13 @@ border-radius: 0;
 </style>
 </head>
 <body>
-
+<h1>Testing, testing</h1>
+<h2>...one two three.</h2>
+<br>
+<p>Take a guess at each term. Hover over the card to see if you got it right. Select if you guessed right or wrong.
+    We'll show you your results at the end!
+</p>
+<br><br>
     {{#each cards}}
     <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
         <div class="mainflip">
@@ -93,18 +98,20 @@ border-radius: 0;
                          <div class="card-body">
                             
                             <p class="card-text">{{answer}}</p>
-                           
+                           <button type="button" class="btn btn-outline-success btn-lg">Right</button>
+
+                            <button type="button" class="btn btn-outline-danger btn-lg">Wrong</button>
                         </div>
                     
                 </div>
             </div>
         </div>
+        
     </div>
 
  <h5>I guessed:</h5>
  <p>Select one</p>
 
- <button type="button" class="btn btn-outline-success btn-lg">Right</button>
-<button type="button" class="btn btn-outline-danger btn-lg">Wrong</button>
+ 
 {{/each}}	
 
