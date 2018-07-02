@@ -85,11 +85,11 @@ app.get('/delete/:deckid', (req,res) => {
 })
 app.post('/delete/:deckid', (req, res) => {
     let deckid = req.body.deckid
-    console.log(deckid)
+    // console.log(deckid)
     flashcard.deleteADeck(deckid) 
         .then((data) => {
              res.redirect('/deck')
-            console.log(data)
+            // console.log(data)
         })
         .catch((error) => {console.log(error);
         })
