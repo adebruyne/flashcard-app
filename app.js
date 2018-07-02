@@ -247,7 +247,14 @@ app.get('/results', (req, res) => {
     .catch((error) => console.log(error))
 })
 
-app.post('/results',(req,res))
+app.post('/results',(req,res) => {
+    flashcard.deleteTests()
+    .then((data) => {
+        res.redirect('/deck')
+    })
+    .catch((error) => console.log(error))
+    
+})
 
 
 
