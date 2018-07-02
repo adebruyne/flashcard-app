@@ -1,4 +1,11 @@
--- database is flashcards
+-- database name is flashcards
+
+DROP TABLE IF EXISTS Sessions;
+DROP TABLE IF EXISTS Tests;
+DROP TABLE IF EXISTS Cards;
+DROP TABLE IF EXISTS Decks;
+
+-- create db flashcards;
 
 CREATE TABLE Sessions(
     session_id SERIAL UNIQUE PRIMARY KEY,
