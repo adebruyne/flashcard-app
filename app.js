@@ -256,7 +256,10 @@ app.post('/results',(req,res) => {
     
 })
 
-
+/////////////////////////ROUTE TO ABOUT PAGE
+app.get('/about', (req, res) => {
+    res.render('about-page')
+})
 
 
 
