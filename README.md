@@ -1,4 +1,4 @@
-# QuizzMe
+# QuizMe
 
 <p align='center'>
     <img src='readme_imgs/one.png' alt='homepage'></img>
@@ -8,7 +8,7 @@
 
 
 ## Overview:
-QuizzMe is a Node.js/Express server-rendered...  Handlebars partials were used to render the front-end views. Settings are stored in a PostgreSQL database. Additions will be made in React.    
+QuizMe is a Node.js/Express server-rendered...  Handlebars partials were used to render the front-end views. Settings are stored in a PostgreSQL database. Additions will be made in React.    
 
 
 ## Built by:
