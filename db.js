@@ -102,7 +102,11 @@ function deleteTests() {
 
 
 function deleteADeck(deck_id) {
-  return db.result(`DELETE FROM decks WHERE deck_id = $1`, [deck_id]);
+  return db.query('DELETE FROM cards WHERE deck_id=$1', [deck_id])
+  .then(() => {
+      return db.result(`DELETE FROM decks WHERE deck_id = $1`, [deck_id]);
+  })
+  
 }
 
 // deleteADeck(4)
