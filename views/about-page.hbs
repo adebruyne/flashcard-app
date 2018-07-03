@@ -1,5 +1,3 @@
-
-
 <style>
    /* apply a natural box layout model to all elements */
 *, *:before, *:after {
@@ -202,6 +200,10 @@
         font-size: 3em;
    }
 
+
+    .about-page{
+        background-color:blue;
+    }
     
 @-webkit-keyframes waves {
 	to { height: 120px; }
@@ -265,26 +267,87 @@
     <div class="bubble ten"></div>
   </div>
 </div>
+{{!-- Search Option --}}
+{{!-- Login/Logout Option --}}
 
-
-
-
-
-
-
-
-<div class="container">
+<div class='container'>
     <div class= "row">
         <div class="col">
             <div id="content">
-                 <h1>RESULTS:</h1>
-                 <h4>You got {{totalRight}} out of {{totalNumber}} right!</h4>
-                <br>
-                <hr>
-                <form action="/results" method="POST">
-                    <button type="submit" class="btn btn-primary btn-lg">All Done!</button>
-                </form>
+                <h1>About Quiz Me!</h1>
+                 <h3>Build it. Learn it. Conquer it.</h3>
+                 <hr>
+       
             </div>
         </div>
-    </div> 
+    </div>
 </div>
+
+
+<div class="card">
+  <div class="card-header">
+    About Quiz Me:
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+      <p>Create your own cutsom decks of flash cards. Add different cards to each deck. Practice,
+            practice, practice. Then, see how much you learned by taking a test!</p>
+            <p>Our mission is to help new programmers - and master programmers- practice their knowledge of 
+            the ever-evoloving languages, concepts, and algorithms of the
+            tech world. These can be a struggle when there's so much
+            to learn. Add more decks and cards that help you personally.
+            We hope this helps clear up all the buzz!
+        </p>
+        <p>
+            Beth and Aylin come from non-tech backgrounds. They boldy made the switch
+            to tech --insert Star Trek theme music-- and began learning to code. Enrolled in a full-stack bootcamp together, they
+            were challenged to think of these concepts in new ways, making analogies and stories to tie it
+            all together. This inspired them to help their peers and future students learn these concepts, practice problem-solving,
+            and help prepare for white-board interviews.       
+        </p>
+        <p>This is their first Full Stack project.</p>
+      
+    </blockquote>
+  </div>
+</div>
+<br>
+
+<div class="card">
+  <div class="card-body">
+    <strong>Built with:</strong> Node.js, Express, Handlebars, PostgresSQL, JavaScript, Nginx, Amazon Web Services Elastic Compute Cloud
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+          <img class="card-img-top" src="https://avatars3.githubusercontent.com/u/32106680?s=400&v=4" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Beth D'Amato</h5>
+        <p class="card-text">Contributions: Node.js, PostgresSQL, Database Management, Querying User Preferences, AWS Deployment/Management</p>
+        <a href="https://github.com/badamato" class="btn btn-dark"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/badamato/" class="btn btn-primary"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-6">
+    <div class="card">
+       <img class="card-img-top" src="https://avatars2.githubusercontent.com/u/38669696?s=460&v=4" alt="Card image cap"> 
+      <div class="card-body">
+        <h5 class="card-title">Aylin DeBruyne</h5>
+        <p class="card-text">Contributions: Node.js, Express Routing, Handlebars Templating, Querying User Preferences, UI/UX</p>
+        <a href="https://github.com/adebruyne" class="btn btn-dark"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/aylindebruyne/" class="btn btn-primary"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+
+<div class="card">
+  <div class="card-body">
+    Any cat photos you see are dedicated to our mentor, instructor and friend - Chris Aquino. 
+  </div>
+</div>
+

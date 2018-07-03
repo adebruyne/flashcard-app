@@ -10,6 +10,23 @@
 ## Overview:
 QuizMe is a Node.js/Express server-rendered...  Handlebars partials were used to render the front-end views. Settings are stored in a PostgreSQL database. Additions will be made in React.    
 
+##About:
+ <p>Create your own cutsom decks of flash cards. Add different cards to each deck. Practice,
+            practice, practice. Then, see how much you learned by taking a test!</p>
+<p>Our mission is to help new programmers - and master programmers- practice their knowledge of 
+            the ever-evoloving languages, concepts, and algorithms of the
+            tech world. These can be a struggle when there's so much
+            to learn. Add more decks and cards that help you personally.
+            We hope this helps clear up all the buzz!
+        </p>
+<p>
+            Beth and Aylin come from non-tech backgrounds. They boldy made the switch
+            to tech --insert Star Trek theme music-- and began learning to code. Enrolled in a full-stack bootcamp together, they
+            were challenged to think of these concepts in new ways, making analogies and stories to tie it
+            all together. This inspired them to help their peers and future students learn these concepts, practice problem-solving,
+            and help prepare for white-board interviews.       
+        </p>
+<p>This is their first Full Stack project.</p>
 
 ## Built by:
 
