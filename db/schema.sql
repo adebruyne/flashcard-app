@@ -42,4 +42,4 @@ WHERE
 GROUP BY 
 	cards.card_id
 ORDER BY
-	cards.card_id
+	cards.card_id;
