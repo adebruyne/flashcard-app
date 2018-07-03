@@ -2,10 +2,15 @@
 * GENERAL
 ****************************************************/
 * {
-    font-family: 'Raleway', cursive;
+
+    /*font-family: 'Droid Sans', sans-serif;*/
+    /*font-family: 'Slabo 27px', serif;*/
+    font-family: 'Lato', sans-serif;
+
+
 }
 
 
 h1 {
-    color: blue;
+    color: rgba(4, 28, 165, 0.788);
 }

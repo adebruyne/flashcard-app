@@ -74,7 +74,7 @@ border-radius: 0;
 </head>
 <body>
 <h1>Testing, testing</h1>
-<h2>...one two three.</h2>
+<h1>...one two three.</h1>
 <br>
 <p>Take a guess at each term. Hover over the card to see if you got it right. Select if you guessed right or wrong.
     We'll show you your results at the end!
@@ -134,15 +134,17 @@ border-radius: 0;
                 <div class="card" style="width:20rem;">
                     <div class="card-header">{{this.question}}</div>
                          <div class="card-body">
-                            
+                           
                             <p class="card-text">{{this.answer}}</p>
                             <br>
+                             <hr>
+                            <p>I guessed:</p>
                             <form action="/deck/{{this.deck_id}}/test" method="POST">
                             <input type="hidden" name="card_id" value="{{this.card_id}}">
                             <input type="hidden" name="isRight" value="true">
                            <button type="submit" class="btn btn-outline-success btn-lg">Right</button>
                             </form>
-
+                            <br>
                              <form action="/deck/{{this.deck_id}}/test" method="POST">
                             <input type="hidden" name="card_id" value="{{this.card_id}}">
                             <input type="hidden" name="isRight" value="false">

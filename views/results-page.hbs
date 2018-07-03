@@ -1,13 +1,290 @@
 
-<div class="container">
-    <h1>Your results!</h1>
 
-    <p>You got {{totalRight}}/{{totalNumber}} right!</p>
+<style>
+   /* apply a natural box layout model to all elements */
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
 
-        <form action="/results" method="POST">
+.washer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 400px;
+  height: 400px;
+  border: 60px solid #eee;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+  .brain {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 200px;
+    height: 200px;
+    background: url(http://i.kinja-img.com/gawker-media/image/upload/s--VQCwnqwV--/17phitxlpacecjpg.jpg) no-repeat;
+    background-size: 250px auto;
+    background-position: left -20px top 0px;
+  }
+
+  .water {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+    .water > .wave {
+      position: absolute;
+      bottom: 0;
+      float: left;
+      width: 5%;
+      height: 160px;
+      background: rgba(0,207,238,0.5);
+      -webkit-animation: waves 2s ease-in-out alternate infinite;
+      animation: waves 2s ease-in-out alternate infinite;
+    }
+    .water > .wave.one {
+      left: 0;
+    }
+    .water > .wave.two {
+      left: 5%;
+      -webkit-animation-delay: .1s;
+      animation-delay: .1s;
+    }
+    .water > .wave.three {
+      left: 10%;
+      -webkit-animation-delay: .2s;
+      animation-delay: .2s;
+    }
+    .water > .wave.four {
+      left: 15%;
+      -webkit-animation-delay: .3s;
+      animation-delay: .3s;
+    }
+    .water > .wave.five {
+      left: 20%;
+      -webkit-animation-delay: .4s;
+      animation-delay: .4s;
+    }
+    .water > .wave.six {
+      left: 25%;
+      -webkit-animation-delay: .5s;
+      animation-delay: .5s;
+    }
+    .water > .wave.seven {
+      left: 30%;
+      -webkit-animation-delay: .6s;
+      animation-delay: .6s;
+    }
+    .water > .wave.eight {
+      left: 35%;
+      -webkit-animation-delay: .7s;
+      animation-delay: .7s;
+    }
+    .water > .wave.nine {
+      left: 40%;
+      -webkit-animation-delay: .8s;
+      animation-delay: .8s;
+    }
+    .water > .wave.ten {
+      left: 45%;
+      -webkit-animation-delay: .9s;
+      animation-delay: .9s;
+    }
+    .water > .wave.elleven {
+      left: 50%;
+      -webkit-animation-delay: .9s;
+      animation-delay: .9s;
+    }
+    .water > .wave.twelve {
+      left: 55%;
+      -webkit-animation-delay: .8s;
+      animation-delay: .8s;
+    }
+    .water > .wave.thirteen {
+      left: 60%;
+      -webkit-animation-delay: .7s;
+      animation-delay: .7s;
+    }
+    .water > .wave.fourteen {
+      left: 65%;
+      -webkit-animation-delay: .6s;
+      animation-delay: .6s;
+    }
+    .water > .wave.fifthteen {
+      left: 70%;
+      -webkit-animation-delay: .5s;
+      animation-delay: .5s;
+    }
+    .water > .wave.sixteen {
+      left: 75%;
+      -webkit-animation-delay: .4s;
+      animation-delay: .4s;
+    }
+    .water > .wave.seventeen {
+      left: 80%;
+      -webkit-animation-delay: .3s;
+      animation-delay: .3s;
+    }
+    .water > .wave.eightteen {
+      left: 85%;
+      -webkit-animation-delay: .2s;
+      animation-delay: .2s;
+    }
+    .water > .wave.nineteen {
+      left: 90%;
+      -webkit-animation-delay: .1s;
+      animation-delay: .1s;
+    }
+    .water > .wave.twenty {
+      left: 95%;
+    }
+  .water > .bubble {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      box-shadow: inset 0 -5px 8px rgba(255,255,255,0.5);
+      transform: rotate(30deg);
+      -webkit-animation: bubbles 2s ease-in-out alternate infinite;
+      animation: bubbles 2s ease-in-out alternate infinite;
+    }
+    .water > .bubble.one {
+      top: 85%;
+      left: 10%;
+    }
+    .water > .bubble.two {
+      top: 78%;
+      left: 20%;
+    }
+    .water > .bubble.three {
+      top: 75%;
+      left: 30%;
+    }
+    .water > .bubble.four {
+      top: 80%;
+      left: 40%;
+    }
+    .water > .bubble.five {
+      top: 82%;
+      left: 50%;
+    }
+    .water > .bubble.six {
+      top: 78%;
+      left: 60%;
+    }
+    .water > .bubble.seven {
+      top: 65%;
+      left: 65%;
+    }
+    .water > .bubble.eight {
+      top: 78%;
+      left: 82%;
+    }
+    .water > .bubble.nine {
+      top: 65%;
+      left: 85%;
+    }
+    .water > .bubble.ten {
+      top: 65%;
+      left: 45%;
+    }
     
-                            
-        <button type="submit" class="btn btn-primary btn-lg">All Done!</button>
-                            
-        </form>
+   h1{
+        font-weight: 700;
+        font-size: 3em;
+   }
+
+    
+@-webkit-keyframes waves {
+	to { height: 120px; }
+}
+@keyframes waves {
+	to { height: 120px; }
+}
+@-webkit-keyframes bubbles {
+	to { top: 70%; }
+}
+@keyframes bubbles {
+	to { top: 70%; }
+}
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+<div class="washer">
+  <div class="brain"></div>
+  
+  <div class='water'>
+    <div class="wave one"></div>
+    <div class="wave two"></div>
+    <div class="wave three"></div>
+    <div class="wave four"></div>
+    <div class="wave five"></div>
+    <div class="wave six"></div>
+    <div class="wave seven"></div>
+    <div class="wave eight"></div>
+    <div class="wave nine"></div>
+    <div class="wave ten"></div>
+    <div class="wave elleven"></div>
+    <div class="wave twelve"></div>
+    <div class="wave thirteen"></div>
+    <div class="wave fourteen"></div>
+    <div class="wave fifthteen"></div>
+    <div class="wave sixteen"></div>
+    <div class="wave seventeen"></div>
+    <div class="wave eightteen"></div>
+    <div class="wave nineteen"></div>
+    <div class="wave twenty"></div>
+    
+    <div class="bubble one"></div>
+    <div class="bubble two"></div>
+    <div class="bubble three"></div>
+    <div class="bubble four"></div>
+    <div class="bubble five"></div>
+    <div class="bubble six"></div>
+    <div class="bubble seven"></div>
+    <div class="bubble eight"></div>
+    <div class="bubble nine"></div>
+    <div class="bubble ten"></div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="container">
+    <div class= "row">
+        <div class="col">
+            <div id="content">
+                 <h1>RESULTS:</h1>
+                 <h4>You got {{totalRight}} out of {{totalNumber}} right!</h4>
+                <br>
+                <hr>
+                <form action="/results" method="POST">
+                    <button type="submit" class="btn btn-primary btn-lg">All Done!</button>
+                </form>
+            </div>
         </div>
+    </div> 
+</div>
