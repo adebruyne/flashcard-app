@@ -84,14 +84,50 @@ Contributions: PostgreSQL Database Management, Querying User Preferences, AWS De
 *Obstacle One -*
 We really wanted to add a 'Testing' feature, where users could view each card one at a time and practice the terms they were trying to memorize. The challenge was, how would we render each card, one at a time, without making a bunch of different routes for each card. 
 ```
-add code snippet here
+app.get('/deck/:deckid/test', (req,res) => {
+    //get all cards
+    flashcard.getCardwithAnswers(req.params.deckid)
+    .then((data) => { 
+        console.log(data)
+        // res.send(data)
+        let isFound = false;
+        for(let i=0; i<data.length; i++){
+            let card = data[i];
+            console.log(card);
+            if(card.answercount === '0' && !isFound){
+                isFound = true;
+                return res.render('test-page', 
+                 card)
+            }
+           
+        }
+        if(!isFound){
+          res.redirect('/results');  
+        }
+         
+    })
+    .catch((error) => console.log(error))
+ })      
+
+ app.post('/deck/:deckid/test', (req,res) => {
+    console.log(req.body)
+    let card_id = req.body.card_id;
+    let isRight = req.body.isRight;
+    //save results to the tests table
+    flashcard.setTest(card_id, isRight)
+    .then((data) =>{
+        res.redirect(`/deck/${req.params.deckid}/test`); 
+    })
+   
+})  
+
+
 ```
 
 *Breakthrough One -*
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eleifend enim at nunc aliquam, dapibus sodales libero malesuada. Maecenas non convallis arcu, quis molestie mi. Sed volutpat dignissim laoreet. Vestibulum lacinia faucibus pellentesque. Nullam et convallis mi, in rhoncus nisl. Suspendisse pretium, leo id venenatis porttitor, nulla libero sollicitudin elit, vel condimentum nisl lectus eu odio. Suspendisse in dictum mi, nec iaculis erat. Morbi eget tristique tortor. Nunc laoreet hendrerit lobortis. Nullam convallis commodo tellus, non efficitur ex finibus id.
-```
-add code snippet here
-```
+Aylin had a strange "AHA" moment while brushing her teeth one night--because who doesn't constantly think about solving code problems! She realized that the data was coming back in array. She needed a for loop to cycle through the array and check if the card had been 'found' and if it had been answered yet. Each loop would change the value of the card to 'found' and after the user had answered if they got it right or wrong, the cycle would move on to the next item in the array. The route for the test, essentially, would ping-pong back and forth between app.get and app.post for the route. After much tweaking and testing, it worked!
+
+
 
 *Obstacle Two -*
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eleifend enim at nunc aliquam, dapibus sodales libero malesuada. Maecenas non convallis arcu, quis molestie mi. Sed volutpat dignissim laoreet. Vestibulum lacinia faucibus pellentesque. Nullam et convallis mi, in rhoncus nisl. Suspendisse pretium, leo id venenatis porttitor, nulla libero sollicitudin elit, vel condimentum nisl lectus eu odio. Suspendisse in dictum mi, nec iaculis erat. Morbi eget tristique tortor. Nunc laoreet hendrerit lobortis. Nullam convallis commodo tellus, non efficitur ex finibus id.
