@@ -82,7 +82,7 @@ Contributions: PostgreSQL Database Management, Querying User Preferences, AWS De
 ## Obstacles and Breakthroughs
 
 *Obstacle One -*
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eleifend enim at nunc aliquam, dapibus sodales libero malesuada. Maecenas non convallis arcu, quis molestie mi. Sed volutpat dignissim laoreet. Vestibulum lacinia faucibus pellentesque. Nullam et convallis mi, in rhoncus nisl. Suspendisse pretium, leo id venenatis porttitor, nulla libero sollicitudin elit, vel condimentum nisl lectus eu odio. Suspendisse in dictum mi, nec iaculis erat. Morbi eget tristique tortor. Nunc laoreet hendrerit lobortis. Nullam convallis commodo tellus, non efficitur ex finibus id.
+We really wanted to add a 'Testing' feature, where users could view each card one at a time and practice the terms they were trying to memorize. The challenge was, how would we render each card, one at a time, without making a bunch of different routes for each card. 
 ```
 add code snippet here
 ```
