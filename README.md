@@ -137,16 +137,9 @@ We felt the app should initially open with three decks containing 10 topic cards
 *Breakthrough -*
 We opted to create the database queries together versus initially posing Beth to manage given she was working with most of the back-end data.  Unknown at the beginning, this exercise seemed the perfect mid-point in the creation of the app for both 'sides' to input on their functionality needs.  With two sets of eyes querying, were were able to build more solid functions more quickly and incorporate Test Driven Development (TDD).
 
-```
-//ADD+++++++++++++++++++++++++++++++++
-function addCard(deck_id, topic, question, answer, imgUrl) {
-  return db.one(`INSERT INTO Cards (deck_id, topic, question, answer, imgUrl) VALUES ($1, '$2#', '$3#', '$4#', '$5#') returning card_id`, [deck_id, topic, question, answer, imgUrl])
-}
-
-// addCard(34, 'algorithms', 'Implement a Fibonacci Number Calculator', 'see diagram', 'https://cdn-images-1.medium.com/max/800/1*pvfDpHBsI1suLSOYR2cO3g.png')
-//   .then((data) => {console.log(data);})
-//   .catch((error) => {console.log(error);});
-```
+<p align='center'>
+    <img src='readme_imgs/seven.png' alt='TDD snippet'></img>
+</p>
 
 ## Future Additions
 
