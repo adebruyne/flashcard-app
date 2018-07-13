@@ -31,10 +31,10 @@ QuizMe is a Node.js/Express server-rendered...  Handlebars partials were used to
 ## Built by:
 
 [Aylin DeBruyne](https://github.com/adebruyne)  
-Contributions: Express Routing, Handlebars Templeting, Querying User Preferences, UI/UX Design
+Contributions: Express Routing, Handlebars Templeting, Querying User Preferences, UI/UX Design, README.md
 
 [Beth D'Amato](https://github.com/badamato)  
-Contributions: PostgreSQL Database Management, Querying User Preferences, AWS Deployment/Management, README.md
+Contributions: PostgreSQL Database Management, Querying User Preferences, AWS Deployment/Management, README.md, Trello Project Tracker
 
 
 ## Built with:
