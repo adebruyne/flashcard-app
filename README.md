@@ -130,13 +130,18 @@ Aylin had a strange "AHA" moment while brushing her teeth one night--because who
 
 
 *Obstacle Two -*
-Understanding that seed data is essential 
-```
-add code snippet here
-```
+Beth and Aylin felt the app should initially open with three decks containing 10 topic cards for each deck. The seed file for that data load stopped upon half load-in and Beth couldn't determine the cause of the disconnect.  Utilizing the pgAdmin tool and a VS Code linter, the seed file was combed/inspected.  Beth learned that multiple disconnects were happening given the use of apostrophes throughout several concept descriptions - syntax errors, of course!  Once 
+
+<p align='center'>
+    <img src='readme_imgs/six.png' alt='seed data bug'></img>
+</p>
+
 
 *Breakthrough Two -*
 Beth 
+```
+add code snippet here
+```
 
 ## Future Additions
 
