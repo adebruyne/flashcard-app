@@ -8,7 +8,7 @@
 
 
 ## Overview:
-QuizMe is a Node.js/Express server-rendered...  Handlebars partials were used to render the front-end views. Settings are stored in a PostgreSQL database. Additions will be made in React.    
+QuizMe is a Node.js/Express server-rendered application targeted to new programmers practice their knowledge of the ever-evolving concepts, languages, and algorithms of the tech world.  Handlebars partials were used to render the front-end views. Settings are stored in a PostgreSQL database. Additions/newer versions will be made in React.    
 
 ## About:
  <p>Create your own cutsom decks of flash cards. Add different cards to each deck. Practice,
