@@ -81,7 +81,7 @@ Contributions: PostgreSQL Database Management, Querying User Preferences, AWS De
 
 ## Obstacles and Breakthroughs
 
-*Obstacle One -*
+*Obstacle -*
 We really wanted to add a 'Testing' feature, where users could view each card one at a time and practice the terms they were trying to memorize. The challenge was, how would we render each card, one at a time, without making a bunch of different routes for each card. 
 ```
 app.get('/deck/:deckid/test', (req,res) => {
@@ -120,24 +120,22 @@ app.get('/deck/:deckid/test', (req,res) => {
     })
    
 })  
-
-
 ```
 
-*Breakthrough One -*
+*Breakthrough -*
 Aylin had a strange "AHA" moment while brushing her teeth one night--because who doesn't constantly think about solving code problems! She realized that the data was coming back in array. She needed a for loop to cycle through the array and check if the card had been 'found' and if it had been answered yet. Each loop would change the value of the card to 'found' and after the user had answered if they got it right or wrong, the cycle would move on to the next item in the array. The route for the test, essentially, would ping-pong back and forth between app.get and app.post for the route. After much tweaking and testing, it worked!
 
 
 
-*Obstacle Two -*
-Beth and Aylin felt the app should initially open with three decks containing 10 topic cards for each deck. The seed file for that data load stopped upon half load-in and Beth couldn't determine the cause of the disconnect.  Utilizing the pgAdmin tool and a VS Code linter, the seed file was combed/inspected.  Beth learned that multiple disconnects were happening given the use of apostrophes throughout several concept descriptions - syntax errors, of course!  Once 
+*Obstacle -*
+Beth and Aylin felt the app should initially open with three decks containing 10 topic cards for each deck. The seed file for that data load stopped upon half load-in and Beth couldn't determine the cause of the disconnect.  Utilizing the pgAdmin tool and a VS Code linter, the seed file was combed/inspected.  Beth learned that multiple disconnects were happening given the use of apostrophes throughout several concept descriptions - syntax errors, of course!  The descriptions were either grammatically rewritten or the SQL syntax adjusted to accommodate.
 
 <p align='center'>
     <img src='readme_imgs/six.png' alt='seed data bug'></img>
 </p>
 
 
-*Breakthrough Two -*
+*Breakthrough -*
 Beth 
 ```
 add code snippet here
