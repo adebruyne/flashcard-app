@@ -1,5 +1,8 @@
 
-//IMPORT EXPRESS 
+console.log('ppppfffffffhhhhhtttt');
+console.log('forky mc fork face');
+
+//IMPORT EXPRESS
 const express = require('express');
 const app = express();
 
@@ -40,9 +43,9 @@ app.get('/deck', (req,res) => {
         })
         })
         .catch((error) => {console.log(error);});
-    
-    
-    
+
+
+
 });
 
 
@@ -53,7 +56,7 @@ app.get('/newdeck', (req, res) => {
     // res.send('new-deck-page')
     //Show a form for a new deck
     res.render('new-deck-page')
-}) 
+})
 app.post('/newdeck', (req, res) => {
     // console.log(req.body);
     // res.send('You submitted a new deck!')
@@ -71,7 +74,7 @@ app.post('/newdeck', (req, res) => {
 /////////////////////////////DELETE DECK
 app.get('/delete/:deckid', (req,res) => {
     flashcard.showAllDecks(req.params.deckid)
-      
+
         .then((data) => {
         //    res.send(data);
         res.render('delete-deck-page', {
@@ -81,19 +84,19 @@ app.get('/delete/:deckid', (req,res) => {
         .catch((error) => {console.log(error);});
 
     //get one deck
-   //delete entire deck   
+   //delete entire deck
 })
 app.post('/delete/:deckid', (req, res) => {
     let deckid = req.body.deckid
     // console.log(deckid)
-    flashcard.deleteADeck(deckid) 
+    flashcard.deleteADeck(deckid)
         .then((data) => {
              res.redirect('/deck')
             // console.log(data)
         })
         .catch((error) => {console.log(error);
         })
-        
+
 })
 
 
@@ -110,7 +113,7 @@ app.get('/deck/:deckid', (req,res) => {
          })
         .catch((error) => {console.log(error);
      })
-   
+
     //get all the cards for one deck
 });
 
@@ -127,20 +130,20 @@ app.get('/deck/:deckid/newcard', (req,res) => {
     })
     // res.send("You want a new card!")
     //Show a form for a new card
-    
+
 })
 
 app.post('/deck/:deckid/newcard', (req ,res) => {
     // res.send('You submited the form')
     //add the 'question', 'answer', 'image' as a new card into the deck
-    // res.redirect('/deck/:deckid');  
+    // res.redirect('/deck/:deckid');
     let deck_id = req.params.deckid;
-    
+
     let question = req.body.question;
     let answer = req.body.answer;
     let imgUrl =  req.body.imgUrl;
-   
-   
+
+
     flashcard.showOneDeck(deck_id)
         .then((deck) => {
             let topic = deck.topic
@@ -154,7 +157,7 @@ app.post('/deck/:deckid/newcard', (req ,res) => {
            .catch((error) => {console.log(error);
         })
     })
-     
+
 })
 
 ///////////////////////////////////DELETE CARD
@@ -167,7 +170,7 @@ app.get('/delete/card/:cardid', (req,res) => {
                 data)
         })
         .catch((error) =>  console.log(error))
-    //get one card from specific deck 
+    //get one card from specific deck
     //delete the card
 
 })
@@ -176,7 +179,7 @@ app.post('/delete/card/:cardid', (req,res) => {
     let card_id = req.params.cardid
     flashcard.deleteACard(card_id)
         .then((data) => {
-            
+
             res.redirect(`/deck/${req.body.deckid}`)
         })
 })
@@ -186,7 +189,7 @@ app.post('/delete/card/:cardid', (req,res) => {
 app.get('/deck/:deckid/test', (req,res) => {
     //get all cards
     flashcard.getCardwithAnswers(req.params.deckid)
-    .then((data) => { 
+    .then((data) => {
         console.log(data)
         // res.send(data)
         let isFound = false;
@@ -195,18 +198,18 @@ app.get('/deck/:deckid/test', (req,res) => {
             console.log(card);
             if(card.answercount === '0' && !isFound){
                 isFound = true;
-                return res.render('test-page', 
+                return res.render('test-page',
                  card)
             }
-           
+
         }
         if(!isFound){
-          res.redirect('/results');  
+          res.redirect('/results');
         }
-         
+
     })
     .catch((error) => console.log(error))
- })      
+ })
 
  app.post('/deck/:deckid/test', (req,res) => {
     console.log(req.body)
@@ -215,10 +218,10 @@ app.get('/deck/:deckid/test', (req,res) => {
     //save results to the tests table
     flashcard.setTest(card_id, isRight)
     .then((data) =>{
-        res.redirect(`/deck/${req.params.deckid}/test`); 
+        res.redirect(`/deck/${req.params.deckid}/test`);
     })
-   
-})  
+
+})
 
 
 
@@ -238,12 +241,12 @@ app.get('/results', (req, res) => {
             }
         }
 
-        res.render('results-page', 
+        res.render('results-page',
         {totalNumber,
         totalRight})
 
     })
-    
+
     .catch((error) => console.log(error))
 })
 
@@ -253,7 +256,7 @@ app.post('/results',(req,res) => {
         res.redirect('/deck')
     })
     .catch((error) => console.log(error))
-    
+
 })
 
 /////////////////////////ROUTE TO ABOUT PAGE
