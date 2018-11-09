@@ -4,7 +4,7 @@
     <img src='readme_imgs/one.png' alt='homepage'></img>
 </p>
 
-# [Live Demo](http://13.58.148.189/)
+# [Live Demo](http://www.quizmeapp.us)
 
 
 ## Overview:
