@@ -25,6 +25,7 @@ app.get("/", (req, res) => {
 });
 
 /////////////////////////ROUTE TO ALL THE DECKS
+
 app.get("/deck", (req, res) => {
   //get all the decks
   flashcard
@@ -39,6 +40,7 @@ app.get("/deck", (req, res) => {
       console.log(error);
     });
 });
+
 
 //////////////////////////ROUTE TO ADD NEW DECK
 app.get("/newdeck", (req, res) => {
@@ -120,6 +122,7 @@ app.get("/deck/:deckid/newcard", (req, res) => {
       console.log(data);
       res.render("new-card-page", { deckid: data.deck_id });
     })
+
     .catch(error => {
       console.log(error);
     });
@@ -207,6 +210,7 @@ app.post("/deck/:deckid/test", (req, res) => {
     res.redirect(`/deck/${req.params.deckid}/test`);
   });
 });
+
 
 ///////////////////////ROUTE TO RESULTS
 app.get("/results", (req, res) => {

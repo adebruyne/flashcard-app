@@ -4,11 +4,11 @@
     <img src='readme_imgs/one.png' alt='homepage'></img>
 </p>
 
-# [Live Demo](http://13.58.148.189/)
+# [Live Demo](http://www.quizmeapp.us)
 
 
 ## Overview:
-QuizMe is a Node.js/Express server-rendered...  Handlebars partials were used to render the front-end views. Settings are stored in a PostgreSQL database. Additions will be made in React.    
+QuizMe is a Node.js/Express server-rendered application targeted to new programmers practice their knowledge of the ever-evolving concepts, languages, and algorithms of the tech world.  Handlebars partials were used to render the front-end views. Settings are stored in a PostgreSQL database. Additions/newer versions will be made in React.    
 
 ## About:
  <p>Create your own cutsom decks of flash cards. Add different cards to each deck. Practice,
@@ -31,10 +31,10 @@ QuizMe is a Node.js/Express server-rendered...  Handlebars partials were used to
 ## Built by:
 
 [Aylin DeBruyne](https://github.com/adebruyne)  
-Contributions: Express Routing, Handlebars Templeting, Querying User Preferences, UI/UX Design
+Contributions: Express Routing, Handlebars Templeting, Querying User Preferences, UI/UX Design, README.md
 
 [Beth D'Amato](https://github.com/badamato)  
-Contributions: PostgreSQL Database Management, Querying User Preferences, AWS Deployment/Management, README.md
+Contributions: PostgreSQL Database Management, Querying User Preferences, AWS Deployment/Management, README.md, Trello Project Tracker
 
 
 ## Built with:
@@ -81,7 +81,7 @@ Contributions: PostgreSQL Database Management, Querying User Preferences, AWS De
 
 ## Obstacles and Breakthroughs
 
-*Obstacle One -*
+*Obstacle -*
 We really wanted to add a 'Testing' feature, where users could view each card one at a time and practice the terms they were trying to memorize. The challenge was, how would we render each card, one at a time, without making a bunch of different routes for each card. 
 ```
 app.get('/deck/:deckid/test', (req,res) => {
@@ -120,21 +120,26 @@ app.get('/deck/:deckid/test', (req,res) => {
     })
    
 })  
-
-
 ```
 
-*Breakthrough One -*
+*Breakthrough -*
 Aylin had a strange "AHA" moment while brushing her teeth one night--because who doesn't constantly think about solving code problems! She realized that the data was coming back in array. She needed a for loop to cycle through the array and check if the card had been 'found' and if it had been answered yet. Each loop would change the value of the card to 'found' and after the user had answered if they got it right or wrong, the cycle would move on to the next item in the array. The route for the test, essentially, would ping-pong back and forth between app.get and app.post for the route. After much tweaking and testing, it worked!
 
 
+*Obstacle -*
+We felt the app should initially open with three decks containing 10 topic cards for each deck. The seed file for that data load stopped upon half load-in and Beth couldn't determine the cause of the disconnect.  Utilizing the pgAdmin tool and a VS Code linter, the seed file was combed/inspected.  Beth learned that multiple disconnects were happening given the use of apostrophes throughout several concept descriptions - syntax errors, of course!  The descriptions were either grammatically rewritten or the SQL syntax adjusted to accommodate.
 
-*Obstacle Two -*
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eleifend enim at nunc aliquam, dapibus sodales libero malesuada. Maecenas non convallis arcu, quis molestie mi. Sed volutpat dignissim laoreet. Vestibulum lacinia faucibus pellentesque. Nullam et convallis mi, in rhoncus nisl. Suspendisse pretium, leo id venenatis porttitor, nulla libero sollicitudin elit, vel condimentum nisl lectus eu odio. Suspendisse in dictum mi, nec iaculis erat. Morbi eget tristique tortor. Nunc laoreet hendrerit lobortis. Nullam convallis commodo tellus, non efficitur ex finibus id.
-```
-add code snippet here
-```
+<p align='center'>
+    <img src='readme_imgs/six.png' alt='seed data bug'></img>
+</p>
 
+
+*Breakthrough -*
+We opted to create the database queries together versus initially posing Beth to manage given she was working with most of the back-end data.  Unknown at the beginning, this exercise seemed the perfect mid-point in the creation of the app for both 'sides' to input on their functionality needs.  With two sets of eyes querying, were were able to build more solid functions more quickly and incorporate Test Driven Development (TDD).
+
+<p align='center'>
+    <img src='readme_imgs/seven.png' alt='TDD snippet'></img>
+</p>
 
 ## Future Additions
 
