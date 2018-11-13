@@ -36,14 +36,3 @@ WHERE tests_id=1;
 UPDATE Tests
 SET isRight=false
 WHERE tests_id=2;
-
-
--- add a card
-INSERT INTO Cards
-	(topic, question, answer, imgUrl)
-VALUES
-	('algorithms', 'Implement a Fibonacci Number Calculator', NULL, 'https://cdn-images-1.medium.com/max/800/1*pvfDpHBsI1suLSOYR2cO3g.png')
-
-
-
---get specific card from a specific topic in a deck

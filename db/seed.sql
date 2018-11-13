@@ -46,9 +46,5 @@ VALUES
 INSERT INTO Tests
     (isRight)
 VALUES
-    (true),
-    (false),
-    (false),
-    (false),
     (true)
 ;
