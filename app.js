@@ -40,12 +40,7 @@ app.get('/deck', (req,res) => {
         })
         })
         .catch((error) => {console.log(error);});
-    
-    
-    
 });
-
-
 
 
 //////////////////////////ROUTE TO ADD NEW DECK
@@ -135,12 +130,10 @@ app.post('/deck/:deckid/newcard', (req ,res) => {
     //add the 'question', 'answer', 'image' as a new card into the deck
     // res.redirect('/deck/:deckid');  
     let deck_id = req.params.deckid;
-    
     let question = req.body.question;
     let answer = req.body.answer;
     let imgUrl =  req.body.imgUrl;
-   
-   
+
     flashcard.showOneDeck(deck_id)
         .then((deck) => {
             let topic = deck.topic
@@ -148,19 +141,19 @@ app.post('/deck/:deckid/newcard', (req ,res) => {
             flashcard.addCard(deck_id, topic, question, answer, imgUrl)
             .then((data) => {
                 console.log(data)
-           //   res.send(data);
-           res.redirect(`/deck/${deck_id}`);
+        //   res.send(data);
+        res.redirect(`/deck/${deck_id}`);
         })
-           .catch((error) => {console.log(error);
+        .catch((error) => {console.log(error);
         })
     })
-     
 })
 
 ///////////////////////////////////DELETE CARD
 app.get('/delete/card/:cardid', (req,res) => {
     // res.send('This is the delete card page')
     let card_id = req.params.cardid
+
     flashcard.showOneCard(card_id)
         .then((data) => {
             res.render('delete-card-page',
@@ -219,7 +212,6 @@ app.get('/deck/:deckid/test', (req,res) => {
     })
    
 })  
-
 
 
 
